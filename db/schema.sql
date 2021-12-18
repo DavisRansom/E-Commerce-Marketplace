@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS ecommerc_db;
+CREATE DATABASE ecommerc_db;
