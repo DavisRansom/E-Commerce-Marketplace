@@ -7,9 +7,8 @@ const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Inform Express.js on which template engine to use
-// app.engine();
-app.set();
+
+// app.set();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
