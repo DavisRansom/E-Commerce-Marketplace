@@ -6,6 +6,7 @@ router.get('/', async (req, res) => {
 
   try {
     const productData = await Product.findAll({
+      where: {isActive: true},
       include: [{model: Category}]
     })
     

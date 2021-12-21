@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize/dist');
 const sequelize = require('../config/connection');
 
 class Product extends Model {}
@@ -15,7 +16,6 @@ Product.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    
     product_img: {
       type: DataTypes.BLOB,
       allowNull: false
@@ -24,19 +24,10 @@ Product.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    admin_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'admin',
-        key: 'id',
-      }
-    },
-
     product_name: {
       type: DataTypes.STRING,
       allowNull: false      
     },
-
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
@@ -44,7 +35,6 @@ Product.init(
         isDecimal: true
       }
     },
-
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -53,13 +43,10 @@ Product.init(
         isNumeric: true,
       }
     },
-
-    category_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'category',
-        key: 'id'
-      }
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     }
   },
   {
