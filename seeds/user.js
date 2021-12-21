@@ -44,6 +44,6 @@ const userData = [
 
 ];
 
-const userAdmin = () => admin.bulkCreate(productData);
+const userAdmin = () => user.bulkCreate(userData);
 
 module.exports = userAdmin;
