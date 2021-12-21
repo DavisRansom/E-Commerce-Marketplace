@@ -11,12 +11,16 @@ Product.init(
       primaryKey: true,
       autoIncrement: true
     },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     
     product_img: {
       type: DataTypes.BLOB,
       allowNull: false
     },
-    alt_tag: {
+    alt: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -26,7 +30,7 @@ Product.init(
         model: 'admin',
         key: 'id',
       }
-    }
+    },
 
     product_name: {
       type: DataTypes.STRING,
