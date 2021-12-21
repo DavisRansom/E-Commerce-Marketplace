@@ -2,7 +2,7 @@
     
 {{#each products as |product| }}
 <div class="card" style="width: 18rem;">
-  <img src="{{product.product_img}}" class="card-img-top" alt="">
+  <img src="{{product.product_img}}" class="card-img-top" alt="{{product.alt}}">
   <div class="card-body">
     <h5 class="card-title"><a href="/product/{{product.id}}">{{product.product_name}}</a>></h5>
     <p>
