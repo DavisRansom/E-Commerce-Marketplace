@@ -6,11 +6,10 @@ const Order = require('./Order');
 
 Category.hasMany(Product, {
   foreignKey: 'category_id'
-  
 });
 
 Product.belongsTo(Category, {
-  foreignKey: 'cagtegory_id',
+  foreignKey: 'category_id',
   onDelete: 'CASCADE'
 });
 
@@ -22,9 +21,6 @@ User.hasOne(Cart, {
 Cart.belongsTo(User, {
   foreignKey: 'user_id',
 });
-
-
-
 
 module.exports = {
   User,
