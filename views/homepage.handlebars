@@ -1,0 +1,20 @@
+<div class="container-fluid" >
+    
+{{#each products as |product| }}
+<div class="card" style="width: 18rem;">
+  <img src="{{product.image_url}}" class="card-img-top" alt="">
+  <div class="card-body">
+    <h5 class="card-title"><a href="/product/{{product.id}}">{{product.name}}</a>></h5>
+    <p>
+      <span for="img" aria-label="money">💲</span>
+      <!-- Pass needed_funding value to the helper function -->
+      <span class="dollar-amount">{{format_amount product.amount}}</span>
+      needed!
+    </p>
+    <p class="card-text">{{product.description}}</p>
+    <a class="btn btn-primary">Add To Cart</a>
+    <p>Seller: {{product.admin.name}}</p>
+  </div>
+</div>
+{{/each}}
+</div>
