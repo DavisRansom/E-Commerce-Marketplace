@@ -16,6 +16,17 @@ Product.init(
       type: DataTypes.BLOB,
       allowNull: false
     },
+    alt_tag: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    admin_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'admin',
+        key: 'id',
+      }
+    }
 
     product_name: {
       type: DataTypes.STRING,
