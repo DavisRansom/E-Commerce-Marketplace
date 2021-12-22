@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// CREATE new user
 router.post('/', async (req, res) => {
   try {
     const userLogIn = await User.create({
@@ -11,11 +10,11 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       isAdmin: req.body.isAdmin,
-      //creating new users
+      //creating new users, follows the user model for signing up new person
     });
 
-    req.session.save(() => {
-      req.session.loggedIn = true
+    req.session.save(() => { //when user logs in, the session is saved
+      req.session.loggedIn = true //loggedIn condition then becomes true. This would allow the handlebars with the {{if loggedIn}} to be accessed
       res.status(200).json(userLogIn);
     });
   } catch (err) {
@@ -50,10 +49,11 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.loggedIn = true
+      req.session.loggedIn = true 
+      //loggedIn condition then becomes true. This would allow the handlebar with the {{if loggedIn}} to be accessed
       res
         .status(200)
-        .json({ user: userLogIn, message: 'You are now logged in!' });
+        .json({ user: userLogIn, message: `You are now logged in. Welcome, ${this.name}` });
     });
   } catch (err) {
     console.log(err);
@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
-    req.session.destroy(() => {
+    req.session.destroy(() => {//logging out destroys the session
       res.status(204).end();
     });
   } else {
