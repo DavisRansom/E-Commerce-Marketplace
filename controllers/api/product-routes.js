@@ -6,6 +6,7 @@ router.get('/', async (req, res) => {
 
   try {
     const productData = await Product.findAll({
+      where: {isActive: true},
       include: [{model: Category}]
     })
     
@@ -44,24 +45,24 @@ router.put('/:id', (req, res) => {
 
 });
 
-router.delete('/:id', async (req, res) => {
+// router.delete('/:id', async (req, res) => {
 
-  try {
-    const productData = await Product.destroy({
-      where: {
-        id: req.params.id
-      }
-    });
+//   try {
+//     const productData = await Product.destroy({
+//       where: {
+//         id: req.params.id
+//       }
+//     });
 
-    if (!productData) {
-      res.status(404).json({ message: 'Product with the provided id does not exist!'})
-      return   
-    }
-    res.status(200).json(productData) 
+//     if (!productData) {
+//       res.status(404).json({ message: 'Product with the provided id does not exist!'})
+//       return   
+//     }
+//     res.status(200).json(productData) 
 
-  } catch (err) {
-    res.status(400).json(err)
-  }
-});
+//   } catch (err) {
+//     res.status(400).json(err)
+//   }
+// });
 
 module.exports = router;

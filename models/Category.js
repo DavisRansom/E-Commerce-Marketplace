@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/connection.js');
 
 class Category extends Model {}
@@ -14,10 +13,6 @@ Category.init(
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: false
-      },
-      category_img: {
-        type: DataTypes.BLOB,
         allowNull: false
       },
   },
