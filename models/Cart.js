@@ -12,7 +12,10 @@ Cart.init(
       primaryKey: true,
       autoIncrement: true
     },
-    
+    item: {
+      type: DataTypes.ARRAY 
+    },
+
     user_id: {
         type: DataTypes.INTEGER,
         references: {

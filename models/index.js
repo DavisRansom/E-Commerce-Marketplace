@@ -5,12 +5,12 @@ const Cart = require('./Cart');
 const Order = require('./Order');
 
 Category.hasMany(Product, {
-  foreignKey: 'category_id'
+  foreignKey: 'category_id',
+  onDelete: 'CASCADE'
 });
 
 Product.belongsTo(Category, {
   foreignKey: 'category_id',
-  onDelete: 'CASCADE'
 });
 
 User.hasOne(Cart, {
