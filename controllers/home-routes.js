@@ -1,14 +1,13 @@
 const router = require('express').Routers();
 const {Product, Category, Cart, Order};
 
-router.get('/',async (req,res)=> {
-    try{
-        req.session.save(()=>{
-            if (req.session.countVisit){
-                req.session.countVisit++;
-            } else {
-                req.session.countVisit = 1;
-            }
-        })
+// Login route
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/'); //gets directed to homepage once logged in
+      return;
     }
-});
+    res.render('login'); //if not logged in, renders the login layout from views folder
+  });
+  
+  module.exports = router;

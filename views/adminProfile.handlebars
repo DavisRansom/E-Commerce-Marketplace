@@ -54,11 +54,12 @@
 
 <script src="./js/sellerProfile.js"></script>
 
-{{!-- Closing statement for the loggedIn condition, if the admin is not logged in --}}
+{{!-- Closing statement for the loggedIn condition, if the admin is not logged in they are redirected to the login page--}}
 {{/if}}
 
 {{#unless loggedIn}}
-<a href="/login">Login here</a>
+<a href="/login">Please log in to view your products.</a>
+
 
 {{/unless}}
 
