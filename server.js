@@ -1,16 +1,20 @@
 const path = require('path');
 const express = require('express');
 const routes =  require('./controllers')
+const session = require('express-session');//importing the npm express-sessions
+const exprhbs = require("express-handlebars")
+const helpers = require("./utils/helpers")
+
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 const sequelize = require('./config/connection');
 
-const session = require('express-session');//importing the npm express-sessions
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = { //creating sessions
-  secret: null,
+  secret: "super secret secret", //how do you make this dependent on the user? Meaning, how cna I make a session unique for each user?
   cookie: {
     maxAge: null, //session allows user to stay logged in until user cancels the session by logging out
     httpOnly: true,
@@ -24,7 +28,12 @@ const sess = { //creating sessions
   }),
 };
 
+const hbs = exprhbs.create({helpers})
+
 // app.set();
+app.engine("handlebars", hbs.engine)
+app.set("view engine", "handlebars")
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
