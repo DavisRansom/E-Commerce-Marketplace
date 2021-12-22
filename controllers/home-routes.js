@@ -4,7 +4,7 @@ const { Product, Category, Cart, Order } = require("../models");
 
 router.get('/', async (req, res) => {
   try {
-    // Get all products and JOIN with user data
+    // Get all products?
     const productData = await Product.findAll({
       include: [
         {
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const products = productData.map((product) => product.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
+    //renders the homepage from handlebar
     res.render('homepage', { 
       products, 
       logged_in: req.session.logged_in 
