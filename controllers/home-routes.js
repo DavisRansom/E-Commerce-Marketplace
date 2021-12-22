@@ -4,23 +4,23 @@ const { Product, Category, Cart, Order } = require("../models");
 
 router.get('/', async (req, res) => {
   try {
-    // Get all products?
-    const productData = await Product.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+    // // Get all products?
+    // const productData = await Product.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //   ],
+    // });
 
-    // Serialize data so the template can read it
-    const products = productData.map((product) => product.get({ plain: true }));
+    // // Serialize data so the template can read it
+    // const products = productData.map((product) => product.get({ plain: true }));
 
-    //renders the homepage from handlebar
+    // //renders the homepage from handlebar
     res.render('homepage', { 
-      products, 
-      logged_in: req.session.logged_in 
+      // products, 
+      // logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
