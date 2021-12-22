@@ -1,31 +1,46 @@
 const User = require('./User');
 const Product = require('./Product');
 const Category = require('./Category');
-const Cart = require('./Cart');
 const Order = require('./Order');
+const CategoryProduct = require('.CategoryProduct');
+const OrderProduct = require('OrderProduct');
 
-Category.hasMany(Product, {
-  foreignKey: 'category_id'
+Product.belongsToMany(Category, {
+  through: CategoryProduct,
+  foreignKey: 'product_id',
 });
 
-Product.belongsTo(Category, {
+Category.belongsToMany(Product, {
+  through: CategoryProduct,
   foreignKey: 'category_id',
   onDelete: 'CASCADE'
 });
 
-User.hasOne(Cart, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
+Product.belongsToMany(Order, {
+  through: OrderProduct,
+  foreignKey: 'product_id',
 });
 
-Cart.belongsTo(User, {
+Order.belongsToMany(Product, {
+  through: OrderProduct,
+  foreignKey: 'order_id',
+});
+
+User.hasMany(Order, {
   foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
+
+Order.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 
 module.exports = {
   User,
   Product,
   Category,
-  Cart,
-  Order
+  CategoryProduct,
+  Order,
+  OrderProduct
  };
