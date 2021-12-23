@@ -46,6 +46,9 @@ Product.init(
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
+    },
+    category_id: {
+      
     }
   },
   {
