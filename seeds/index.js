@@ -18,9 +18,9 @@ const seedAll = async () => {
 
   await seedUsers();
 
-  await seedOrderProduct();
-
   await seedOrder();
+
+  await seedOrderProduct();
 
   await seedCategoryProduct();
 

@@ -1,19 +1,17 @@
 <div class="container-fluid" >
-    
-{{#each products as |product| }}
+<h1> THIS IS RENDERING CORRECTLY</h1>
+{{#each serializedData}}
 <div class="card" style="width: 18rem;">
-  <img src="{{product.product_img}}" class="card-img-top" alt="{{product.alt}}">
+  <img src="{{product_img}}" class="card-img-top" alt="{{alt}}">
   <div class="card-body">
-    <h5 class="card-title"><a href="/product/{{product.id}}">{{product.product_name}}</a>></h5>
+    <h5 class="card-title"><a href="/product/{{id}}">{{product_name}}</a></h5>
     <p>
       <span for="img" aria-label="money">💲</span>
       <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount product.price}}</span>
-      needed!
+      <span class="dollar-amount">{{format_amount price}}</span>
     </p>
-    <p class="card-text">{{product.description}}</p>
+    <p class="card-text">{{description}}</p>
     <a class="btn btn-primary">Add To Cart</a>
-    <p>Seller: {{product.admin.name}}</p>
   </div>
 </div>
 {{/each}}
