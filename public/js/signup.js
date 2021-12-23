@@ -7,12 +7,12 @@ const signupFormHandler = async (event) => {
     const address = document.querySelector('#address-signup').value.trim();
     const phone_number = document.querySelector('#phone_number-signup').value.trim();
 
-    const address
+    const isAdmin = document.querySelector('#idAdmin-sign-up').checked;
 
     if (name && email && password && address && phone_number) {
         const userResponse = await fetch('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ name, email, password }),
+            body: JSON.stringify({ name, email, password, phone_number, isAdmin }),
             headers: { 'Content-Type': 'application/json' },
         });
 

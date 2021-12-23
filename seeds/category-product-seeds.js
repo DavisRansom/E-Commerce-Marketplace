@@ -15,7 +15,7 @@ const categoryProductData = [
   },
   {
     product_id: 3,
-    category_id: 1,
+    category_id: 3,
   },
   {
     product_id: 4,
@@ -39,15 +39,15 @@ const categoryProductData = [
   },
   {
     product_id: 9,
-    category_id: 6,
+    category_id: 4,
   },
   {
     product_id: 10,
-    category_id: 6,
+    category_id: 3,
   },
   {
     product_id: 11,
-    category_id: 7,
+    category_id: 2,
   },
 ];
 

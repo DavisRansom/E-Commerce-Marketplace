@@ -15,7 +15,7 @@ const userData = [
     phone_number:7185648659,
     email:'iamfirstspooderman@gmail.com',
     password:'ishootwebsinsideme1',
-    isAdmin: true,
+    isAdmin: false,
   },
   {
     name:'Tim Hoyander',
@@ -23,7 +23,7 @@ const userData = [
     phone_number:3478791236,
     email:'ididnotkillmysterio@gmail.com',
     password:'tonystarkchild3000',
-    isAdmin:true,
+    isAdmin:false,
   },
   {
     name:'Zendoyer Jones',

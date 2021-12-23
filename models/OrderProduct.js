@@ -24,7 +24,7 @@ OrderProduct.init(
     order_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "category",
+        model: "order",
         key: "id"
       }
     }

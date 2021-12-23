@@ -1,25 +1,25 @@
 const router = require('express').Router();
-const { Product, Category, User, Order } = require ('../models');
+const { Product, Category, User, Order } = require('../models');
 
 router.get('/', async (req, res) => {
-    try {
-      let logged_in = req.session.logged_in
-  
-      let data = await Product.findAll({
-        include:[
-          {model: User, as :"user"}
-        ]
-      })
+  try {
+    // let logged_in = req.session.logged_in
 
-      let serializedData = data.map(blog=> blog.get({plain:true}))
-  
-     res.render("homepage", {data:serializedData, logged_in})
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+    let data = await Product.findAll()
+    console.log('*******************')
 
-  module.exports = router;
+    let serializedData = data.map(product => product.get({ plain: true }));
+
+    console.log(serializedData);
+
+    res.render("homepage", { serializedData});
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+module.exports = router;
 
 
 
@@ -37,5 +37,3 @@ router.get('/', async (req, res) => {
 //         })
 //     }
 //     });
-
-module.exports = router;
