@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+// const { DataTypes } = require('sequelize/dist');
 // const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
@@ -20,12 +21,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     address: {
       type: DataTypes.STRING,
       allowNull: false
     },
-
     phone_number: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -51,6 +50,9 @@ User.init(
         len: [8],
       },
     }, 
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+    }
     
   },
   {
