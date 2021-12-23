@@ -9,11 +9,14 @@ router.get('/:id', async (req, res) => {
       include: [{model: Category}]
 
     });
+    console.log(productData);
     if (!productData) {
       res.status(404).json({ message: 'Product with the provided id does not exist!'})
       return
     }
-    res.status(200).json(productData)
+    // let serializedData = productData.map(product => product.get({ plain: true }));
+    // console.log(serializedData);
+    res.render("product", {productData}); 
 
   } catch (err) {
     res.status(400).json(err)
@@ -40,7 +43,6 @@ router.put('/:id', async (req, res) => {
   });
   if (!productData) {
     res.status(404).json({ message: 'Product with the provided id does not exist!'})
-    return
   }
     res.status(200).json(productData)
   } catch (err) {
@@ -49,24 +51,23 @@ router.put('/:id', async (req, res) => {
 
 });
 
-// router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
 
-//   try {
-//     const productData = await Product.destroy({
-//       where: {
-//         id: req.params.id
-//       }
-//     });
+  try {
+    const productData = await Product.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
 
-//     if (!productData) {
-//       res.status(404).json({ message: 'Product with the provided id does not exist!'})
-//       return   
-//     }
-//     res.status(200).json(productData) 
+    if (!productData) {
+      res.status(404).json({ message: 'Product with the provided id does not exist!'})   
+    }
+    res.status(200).json(productData) 
 
-//   } catch (err) {
-//     res.status(400).json(err)
-//   }
-// });
+  } catch (err) {
+    res.status(400).json(err)
+  }
+});
 
 module.exports = router;
