@@ -13,7 +13,6 @@ Product.belongsToMany(Category, {
 Category.belongsToMany(Product, {
   through: CategoryProduct,
   foreignKey: 'category_id',
-  onDelete: 'CASCADE'
 });
 
 Product.belongsToMany(Order, {

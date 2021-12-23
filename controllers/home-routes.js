@@ -1,32 +1,41 @@
 const router = require('express').Router();
-const { Product, Category, Cart, Order } = require("../models");
-
+const { Product, Category, User, Order } = require ('../models');
 
 router.get('/', async (req, res) => {
+    try {
+      let logged_in = req.session.logged_in
+  
+      let data = await Product.findAll({
+        include:[
+          {model: User, as :"user"}
+        ]
+      })
 
-  try {
-    const productData = await Product.findAll({
-      where: {isActive: true},
-      include: [{model: Category}]
-    })
-    
-  const products = productData.map((product) => product.get({ plain: true }));
+      let serializedData = data.map(blog=> blog.get({plain:true}))
+  
+     res.render("homepage", {data:serializedData, logged_in})
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
-    res.render('homepage');
-    res.status(200).json(productData)
-  } catch (err) {
-    res.status(400).json(err)
-  }
-});
+  module.exports = router;
 
 
-// Login route
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/'); //gets directed to homepage once logged in
-    return;
-  }
-  res.render('login'); //if not logged in, renders the login layout from views folder
-});
+
+
+
+
+// router.get('/', async (req, res) => {
+//     try {
+//         req.session.save(() => {
+//             if (req.session.countVisit) {
+//                 req.session.countVisit++;
+//             } else {
+//                 req.session.countVisit = 1;
+//             }
+//         })
+//     }
+//     });
 
 module.exports = router;

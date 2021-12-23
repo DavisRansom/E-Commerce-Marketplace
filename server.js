@@ -1,39 +1,32 @@
 const path = require('path');
 const express = require('express');
-const routes =  require('./controllers')
-const session = require('express-session');//importing the npm express-sessions
-const exprhbs = require("express-handlebars")
-const helpers = require("./utils/helpers")
-
-const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const session = require('express-session');
+const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
-
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const sess = { //creating sessions
-  secret: "super secret secret", //how do you make this dependent on the user? Meaning, how cna I make a session unique for each user?
-  cookie: {
-    maxAge: null, //session allows user to stay logged in until user cancels the session by logging out
-    httpOnly: true,
-    secure: false,
-    sameSite: 'strict' //sameSite attribute limits the scope of the cookie; putting it as strict makes it so session is active within the the same domain name
-  },
+const hbs = exphbs.create({ helpers });
+
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize,
-  }),
+    db: sequelize
+  })
 };
 
-const hbs = exprhbs.create({helpers})
+app.use(session(sess));
 
-// app.set();
-app.engine("handlebars", hbs.engine)
-app.set("view engine", "handlebars")
-
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -41,6 +34,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-// sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening, connected to port ${PORT}`));
-// });
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening' + PORT));
+});
+
+
+
