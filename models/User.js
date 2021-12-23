@@ -27,9 +27,7 @@ User.init(
       type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
-        validate: {
           isNumeric: true,
-        }
       }
     },
 
