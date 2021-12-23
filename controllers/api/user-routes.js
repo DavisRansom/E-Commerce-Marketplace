@@ -49,7 +49,9 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.loggedIn = true 
+      req.session.logged_in = true 
+      req.session.user_id = userLogIn.id
+      req.session.isAdmin = userLogIn.isAdmin
       //loggedIn condition then becomes true. This would allow the handlebar with the {{if loggedIn}} to be accessed
       res
         .status(200)
@@ -62,7 +64,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_In) {
     req.session.destroy(() => {//logging out destroys the session
       res.status(204).end();
     });
