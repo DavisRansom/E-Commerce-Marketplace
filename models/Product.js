@@ -47,6 +47,7 @@ Product.init(
       allowNull: false,
       defaultValue: true
     }
+
   },
   {
     sequelize,

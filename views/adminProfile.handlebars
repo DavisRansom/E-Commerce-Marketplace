@@ -1,5 +1,5 @@
 {{!-- Admin page won't render until the 'loggedIn' condition is true --}}
-{{#if logged_in}} 
+{{#if logged_in}}
 
 <div class="row">
   <div class="col-auto">
@@ -28,6 +28,7 @@
         <label for="product-img">Image URL:</label>
         <input class="form-input" id="product-img" name="product-img" />
       </div>
+
       <div class="form-group">
         <button type="submit" class="btn btn-dark">Sell This!</button>
       </div>
@@ -51,10 +52,16 @@
   </div>
   {{/if}}
 </div>
+<!--Add Category Section-->
+<div class="form-group">
+  <label for="product-img">Category:</label>
+  <input class="form-input" id="product-img" name="product-img" />
+</div>
 
 <script src="./js/sellerProfile.js"></script>
 
-{{!-- Closing statement for the loggedIn condition, if the admin is not logged in they are redirected to the login page--}}
+{{!-- Closing statement for the loggedIn condition, if the admin is not logged in they are redirected to the login
+page--}}
 {{/if}}
 
 {{#unless logged_in}}
@@ -62,4 +69,3 @@
 
 
 {{/unless}}
-
