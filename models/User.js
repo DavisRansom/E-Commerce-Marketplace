@@ -50,6 +50,7 @@ User.init(
     }, 
     isAdmin: {
       type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
     
   },
