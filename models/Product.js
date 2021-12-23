@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-// const { DataTypes } = require('sequelize/dist');
+
 const sequelize = require('../config/connection');
 
 class Product extends Model {}
@@ -48,6 +48,7 @@ Product.init(
       allowNull: false,
       defaultValue: true
     }
+
   },
   {
     sequelize,

@@ -3,29 +3,22 @@ const { Product, Category, Cart, Order } = require("../models");
 
 
 router.get('/', async (req, res) => {
+
   try {
-    // // Get all products?
-    // const productData = await Product.findAll({
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ['name'],
-    //     },
-    //   ],
-    // });
+    const productData = await Product.findAll({
+      where: {isActive: true},
+      include: [{model: Category}]
+    })
+    
+  const products = productData.map((product) => product.get({ plain: true }));
 
-    // // Serialize data so the template can read it
-    // const products = productData.map((product) => product.get({ plain: true }));
-
-    // //renders the homepage from handlebar
-    res.render('homepage', { 
-      // products, 
-      // logged_in: req.session.logged_in 
-    });
+    res.render('homepage');
+    res.status(200).json(productData)
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err)
   }
 });
+
 
 // Login route
 router.get('/login', (req, res) => {
