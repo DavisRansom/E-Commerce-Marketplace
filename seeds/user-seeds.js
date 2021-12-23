@@ -1,11 +1,11 @@
-const { Users } = require('../models');
+const { User } = require('../models');
 
 const userData = [
   {
     name: 'Adrew Garfunkle',
-    adress: '1 Ingroom St.',
+    address: '1 Ingroom St.',
     phone_number: 9175564568,
-    email: 'Spoodermon@gmail.com',
+    email: 'spoodermon@gmail.com',
     password:'notthelamespiderman1',
     isAdmin: true,
   },
@@ -45,6 +45,6 @@ const userData = [
 
 ];
 
-const userUser = () => user.bulkCreate(userData);
+const seedUsers = () => User.bulkCreate(userData);
 
-module.exports = userUser;
+module.exports = seedUsers;
