@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
           {model: User, as :"user"}
         ]
       })
-  
+
       let serializedData = data.map(blog=> blog.get({plain:true}))
   
      res.render("homepage", {data:serializedData, logged_in})
