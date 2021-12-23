@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => { //when user logs in, the session is saved
-      req.session.loggedIn = true //loggedIn condition then becomes true. This would allow the handlebars with the {{if loggedIn}} to be accessed
+      req.session.loggedIn = true //loggedIn condition then becomes true. This would allow the handlebars with the {{if logged_in}} to be accessed
       res.status(200).json(userLogIn);
     });
   } catch (err) {
