@@ -50,6 +50,7 @@ Product.init(
     category_id: {
       
     }
+
   },
   {
     sequelize,

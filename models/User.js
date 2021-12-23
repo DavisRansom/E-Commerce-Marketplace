@@ -24,7 +24,7 @@ User.init(
       allowNull: false
     },
     phone_number: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
         validate: {
@@ -50,6 +50,7 @@ User.init(
     }, 
     isAdmin: {
       type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
     
   },
