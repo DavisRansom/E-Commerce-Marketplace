@@ -1,11 +1,11 @@
-const { Users } = require('../models');
+const { User } = require('../models');
 
 const userData = [
   {
     name: 'Adrew Garfunkle',
-    adress: '1 Ingroom St.',
+    address: '1 Ingroom St.',
     phone_number: 9175564568,
-    email: 'Spoodermon@gmail.com',
+    email: 'spoodermon@gmail.com',
     password:'notthelamespiderman1',
     isAdmin: true,
   },
@@ -15,7 +15,7 @@ const userData = [
     phone_number:7185648659,
     email:'iamfirstspooderman@gmail.com',
     password:'ishootwebsinsideme1',
-    isAdmin: true,
+    isAdmin: false,
   },
   {
     name:'Tim Hoyander',
@@ -23,7 +23,7 @@ const userData = [
     phone_number:3478791236,
     email:'ididnotkillmysterio@gmail.com',
     password:'tonystarkchild3000',
-    isAdmin:true,
+    isAdmin:false,
   },
   {
     name:'Zendoyer Jones',
@@ -45,6 +45,6 @@ const userData = [
 
 ];
 
-const userUser = () => user.bulkCreate(userData);
+const seedUsers = () => User.bulkCreate(userData);
 
-module.exports = userUser;
+module.exports = seedUsers;
