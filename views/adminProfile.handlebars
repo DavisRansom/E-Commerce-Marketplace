@@ -1,5 +1,5 @@
 {{!-- Admin page won't render until the 'loggedIn' condition is true --}}
-{{#if loggedIn}} 
+{{#if logged_in}} 
 
 <div class="row">
   <div class="col-auto">
@@ -54,11 +54,12 @@
 
 <script src="./js/sellerProfile.js"></script>
 
-{{!-- Closing statement for the loggedIn condition, if the admin is not logged in --}}
+{{!-- Closing statement for the loggedIn condition, if the admin is not logged in they are redirected to the login page--}}
 {{/if}}
 
-{{#unless loggedIn}}
-<a href="/login">Login here</a>
+{{#unless logged_in}}
+<a href="/login">Please log in to view your products.</a>
+
 
 {{/unless}}
 
