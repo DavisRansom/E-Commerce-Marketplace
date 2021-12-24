@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
 
-
 router.get('/', async (req, res) => {
 
   try {
@@ -24,7 +23,6 @@ router.get('/:id', async (req, res) => {
     });
     if (!categoryData) {
       res.status(404).json({ message: 'Category with the provided id does not exist!'})
-      return
     }
     res.status(200).json(categoryData)
 
@@ -47,7 +45,6 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
 
-
   try {
     const categoryData = await Category.update(req.body, {
     where: {
@@ -56,7 +53,6 @@ router.put('/:id', async (req, res) => {
   });
   if (!categoryData) {
     res.status(404).json({ message: 'Category with the provided id does not exist!'})
-    return
   }
     res.status(200).json(categoryData)
   } catch (err) {
@@ -74,7 +70,6 @@ router.delete('/:id', async (req, res) => {
   });
   if (!categoryData) {
     res.status(404).json({ message: 'Category with the provided id does not exist!'})
-    return
   }
     res.status(200).json(categoryData)
   } catch (err) {

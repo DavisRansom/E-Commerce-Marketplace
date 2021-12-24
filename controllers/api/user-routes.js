@@ -1,6 +1,35 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+router.get('/', async (req, res) => {
+
+  try {
+    const userData = await User.findAll()
+    
+    res.status(200).json(userData)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+router.get('/:id', async (req, res) => {
+
+  try {
+    const userData = await User.findByPk(req.params.id, {
+    });
+    if (!userData) {
+      res.status(404).json({ message: 'User with the provided id does not exist!'})
+    }
+    res.status(200).json(userData)
+
+  } catch (err) {
+    res.status(500).json(err)
+  }  
+
+});
+
+
+
 router.post('/', async (req, res) => {
   try {
     const userLogIn = await User.create({
@@ -49,7 +78,9 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.loggedIn = true 
+      req.session.logged_in = true 
+      req.session.user_id = userLogIn.id
+      req.session.isAdmin = userLogIn.isAdmin
       //loggedIn condition then becomes true. This would allow the handlebar with the {{if loggedIn}} to be accessed
       res
         .status(200)
@@ -62,7 +93,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_In) {
     req.session.destroy(() => {//logging out destroys the session
       res.status(204).end();
     });
