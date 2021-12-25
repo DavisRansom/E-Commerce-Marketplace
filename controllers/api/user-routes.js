@@ -28,29 +28,48 @@ router.get('/:id', async (req, res) => {
 
 });
 
+router.post('/createuser', async (req,res)=> { 
+  try { 
 
+    //Variable to hold new userData
+    const newUserData = await User.create(req.body)
 
-router.post('/', async (req, res) => {
-  try {
-    const userLogIn = await User.create({
-      name: req.body.name,
-      address: req.body.address,
-      phone_number: req.body.phone_number,
-      email: req.body.email,
-      password: req.body.password,
-      isAdmin: req.body.isAdmin,
-      //creating new users, follows the user model for signing up new person
+    //Req.sessions for cookies
+    req.session.save(() => {
+      req.session.user_id = newUserData.id;
+      req.session.logged_in = true;
+      req.session.isAdmin = newUserData.isAdmin;
+      
+      res.json({ user: newUserData, message: 'Welcome!' });
     });
 
-    req.session.save(() => { //when user logs in, the session is saved
-      req.session.loggedIn = true //loggedIn condition then becomes true. This would allow the handlebars with the {{if loggedIn}} to be accessed
-      res.status(200).json(userLogIn);
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+    //Catch error
+} catch (err) {
+  res.status(400).json(err);
+}
+})
+
+// router.post('/', async (req, res) => {
+//   try {
+//     const userLogIn = await User.create({
+//       name: req.body.name,
+//       address: req.body.address,
+//       phone_number: req.body.phone_number,
+//       email: req.body.email,
+//       password: req.body.password,
+//       isAdmin: req.body.isAdmin,
+//       //creating new users, follows the user model for signing up new person
+//     });
+
+//     req.session.save(() => { //when user logs in, the session is saved
+//       req.session.loggedIn = true //loggedIn condition then becomes true. This would allow the handlebars with the {{if loggedIn}} to be accessed
+//       res.status(200).json(userLogIn);
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 // Login
 router.post('/login', async (req, res) => {
@@ -95,6 +114,7 @@ router.post('/login', async (req, res) => {
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {//logging out destroys the session
+      res.redirect('/');
       res.status(204).end();
     });
   } else {
