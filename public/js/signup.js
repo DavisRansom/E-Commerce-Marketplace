@@ -9,7 +9,8 @@ const signupFormHandler = async (event) => {
     const address = document.querySelector('#address-signup').value.trim();
     const phone_number = document.querySelector('#phone_number-signup').value.trim();
 
-    const isAdmin = document.querySelector('#idAdmin-sign-up').checked;
+    const isAdmin = document.querySelector('#idAdmin-signup')
+    console.log(isAdmin);
 
     if (!name || !email || !password || !address || !phone_number) {
         return;

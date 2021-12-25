@@ -5,22 +5,18 @@ const { Product, Category} = require('../../models');
 router.get('/:id', async (req, res) => {
  
   try {
-    const productData = await Product.findOne({
-      where: {
-        id: req.params.id
-      }
-    });
-    console.log(productData);
+    const productData = await Product.findByPk(req.params.id);
+    // console.log(productData);
     if (!productData) {
       res.status(404).json({ message: 'Product with the provided id does not exist!'})
       return
     }
-    // let serializedData = productData.map(product=> product.get({ plain: true }));
-    // console.log(serializedData);
-    res.render("product", {productData}); 
+    const product = productData.get({plain:true})
+    console.log(product);
+    res.render("product", product); 
 
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 });
 

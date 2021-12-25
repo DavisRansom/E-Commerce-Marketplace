@@ -39,9 +39,9 @@
             </ul>
             <span class="navbar-text">
               <!-- Conditionally render login or logout links -->
-              {{#if logged_in}}
+              {{#if req.session.logged_in}}
               <a href="/profile">profile</a> |
-              <button class="no-button" id="logout">logout</button>
+              <a href='/logout'id="logout">logout</a>
               {{else}}
               <a href="/login">login</a>
               <a href="signup">sign-up</a>
