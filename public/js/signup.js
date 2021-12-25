@@ -1,3 +1,5 @@
+
+
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
@@ -9,20 +11,25 @@ const signupFormHandler = async (event) => {
 
     const isAdmin = document.querySelector('#idAdmin-sign-up').checked;
 
-    if (name && email && password && address && phone_number) {
-        const userResponse = await fetch('/api/users', {
-            method: 'POST',
-            body: JSON.stringify({ name, email, password, phone_number, isAdmin }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (userResponse.ok) {
-            document.location.replace('/profile');
-        } else {
-            alert(userResponse.statusText);
-        }
+    if (!name || !email || !password || !address || !phone_number) {
+        return;
     }
-};
-document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+    let userObject = {
+        name,
+        email,
+        password,
+        address,
+        phone_number,
+        isAdmin
+    }
+
+    fetch('/api/users/createuser', {
+        method: 'POST',
+        body: JSON.stringify(userObject),
+        headers: { 'Content-Type': 'application/json' },
+    }).then((response) => response.json())
+        .then((data) => {
+            document.location.replace('/');
+        })
+}
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
