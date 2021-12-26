@@ -12,7 +12,10 @@ router.get('/', async (req, res) => {
 
     console.log(serializedData);
 
-    res.render("homepage", { serializedData});
+    res.render("homepage", { 
+      serializedData,
+      logged_in: req.session.logged_in
+    });
 
   } catch (err) {
     res.status(500).json(err);

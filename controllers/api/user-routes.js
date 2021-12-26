@@ -19,6 +19,7 @@ router.get('/:id', async (req, res) => {
     });
     if (!userData) {
       res.status(404).json({ message: 'User with the provided id does not exist!'})
+      return
     }
     res.status(200).json(userData)
 
@@ -104,7 +105,7 @@ router.post('/login', async (req, res) => {
       //loggedIn condition then becomes true. This would allow the handlebar with the {{if loggedIn}} to be accessed
       res
         .status(200)
-        .json({ user: userLogIn, message: `You are now logged in. Welcome, ${this.name}` });
+        .json({ user: userLogIn, message: `You are now logged in. Welcome!` });
     });
   } catch (err) {
     console.log(err);
@@ -113,9 +114,9 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {//logging out destroys the session
-      res.redirect('/');
+      // res.render('/login');
       res.status(204).end();
     });
   } else {

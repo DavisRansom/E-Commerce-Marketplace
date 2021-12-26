@@ -40,6 +40,7 @@ router.put('/:id', async (req, res) => {
   });
   if (!productData) {
     res.status(404).json({ message: 'Product with the provided id does not exist!'})
+    return
   }
     res.status(200).json(productData)
   } catch (err) {
@@ -58,7 +59,8 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!productData) {
-      res.status(404).json({ message: 'Product with the provided id does not exist!'})   
+      res.status(404).json({ message: 'Product with the provided id does not exist!'})
+      return  
     }
     res.status(200).json(productData) 
 

@@ -20,7 +20,6 @@
       </h1>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,23 +32,27 @@
               <li class="nav-item">
                 <a class="nav-link active" href="/api/categories">Categories</a>
               </li>
+
+
+              <!-- Conditionally render login or logout links -->
+              {{#if logged_in}}
               <li class="nav-item">
                 <a class="nav-link active" href="/api/users/profile">Profile</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link active" href='/logout'id="logout">logout</a>
+              </li>
+              
+              {{else}}
+              <li class="nav-item">
+                <a class="nav-link active" href="/login">login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="signup">sign-up</a>
+              </li>
+              {{/if}}
             </ul>
-            {{#if logged_in}}
-            <span class="navbar-text">
-              <!-- Conditionally render login or logout links -->
-              <a href='/api/users/logout'id="logout">logout</a>              
-            </span>
-            {{/if}}
-
-            {{#unless logged_in}}
-            <span class="navbar-text">
-              <a href="/login">login</a>
-              <a href="signup">sign-up</a>
-            </span>
-              {{/unless}}
+            
           </div>
         </div>
       </nav>

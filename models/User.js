@@ -24,7 +24,7 @@ User.init(
       allowNull: false
     },
     phone_number: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
           isNumeric: true,
