@@ -20,7 +20,6 @@
       </h1>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <sphan class="navbar-toggler-icon"></span>
@@ -33,20 +32,27 @@
               <li class="nav-item">
                 <a class="nav-link active" ref="/categories">Categories</a>
               </li>
+
+
+              <!-- Conditionally render login or logout links -->
+              {{!-- {{#if logged_in}} --}}
               <li class="nav-item">
                 <a class="nav-link active" href="/profile">Profile</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link active" href='/logout'id="logout">logout</a>
+              </li>
+              
+              {{!-- {{else}} --}}
+              <li class="nav-item">
+                <a class="nav-link active" href="/login">login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="signup">sign-up</a>
+              </li>
+              {{!-- {{/if}} --}}
             </ul>
-            <span class="navbar-text">
-              <!-- Conditionally render login or logout links -->
-              {{#if req.session.logged_in}}
-              <a href="/profile">profile</a> |
-              <a href='/logout'id="logout">logout</a>
-              {{else}}
-              <a href="/login">login</a>
-              <a href="signup">sign-up</a>
-              {{/if}}
-            </span>
+            
           </div>
         </div>
       </nav>
@@ -62,9 +68,9 @@
   </div>
 
   <!-- Render script for logged in users only -->
-  {{#if logged_in}}
+  {{!-- {{#if logged_in}} --}}
   <script src="/js/logout.js"></script>
-  {{/if}}
+  {{!-- {{/if}} --}}
   <script src="https://js.stripe.com/v3/"></script>
 </body>
 

@@ -23,6 +23,7 @@ router.get('/:id', async (req, res) => {
     });
     if (!categoryData) {
       res.status(404).json({ message: 'Category with the provided id does not exist!'})
+      return
     }
     res.status(200).json(categoryData)
 
@@ -53,6 +54,7 @@ router.put('/:id', async (req, res) => {
   });
   if (!categoryData) {
     res.status(404).json({ message: 'Category with the provided id does not exist!'})
+    return
   }
     res.status(200).json(categoryData)
   } catch (err) {
@@ -70,6 +72,7 @@ router.delete('/:id', async (req, res) => {
   });
   if (!categoryData) {
     res.status(404).json({ message: 'Category with the provided id does not exist!'})
+    return
   }
     res.status(200).json(categoryData)
   } catch (err) {
