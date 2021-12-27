@@ -57,13 +57,15 @@ router.put('/:id', async (req, res) => {
     const updatedUserData = await User.update(req.body, {
     where: {
       id: req.params.id,
-    }
+      
+    },
+    individualHooks: true,
   });
   if (!updatedUserData) {
     res.status(404).json({ message: 'User with the provided id does not exist!'})
     return;
   }
-    res.status(200).json({updatedUserData, message: 'User Info updated!' })
+    res.status(200).json({ message: 'User Info updated!' })
   } catch (err) {
     res.status(400).json(err);
   }
