@@ -1,10 +1,9 @@
-<div class="container-fluid" >
-<h1> THIS IS RENDERING CORRECTLY</h1>
+<div class="container-fluid" id="card-container">
 {{#each serializedData}}
 <div class="card" style="width: 18rem;">
-  <img src="{{product_img}}" class="card-img-top" alt="{{alt}}">
+  <img src="{{product_img}}" class="card-img-top" alt="{{alt}}" id="small-product">
   <div class="card-body">
-    <h5 class="card-title"><a href="/product/{{id}}">{{product_name}}</a></h5>
+    <h5 class="card-title"><a href="/api/products/{{id}}">{{product_name}}</a></h5>
     <p>
       <span for="img" aria-label="money">💲</span>
       <!-- Pass needed_funding value to the helper function -->

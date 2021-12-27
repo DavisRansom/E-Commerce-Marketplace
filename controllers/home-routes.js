@@ -12,7 +12,10 @@ router.get('/', async (req, res) => {
 
     console.log(serializedData);
 
-    res.render("homepage", { serializedData});
+    res.render("homepage", { 
+      serializedData,
+      logged_in: req.session.logged_in
+    });
 
   } catch (err) {
     res.status(500).json(err);
@@ -26,6 +29,15 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
 });
 
 module.exports = router;

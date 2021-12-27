@@ -16,7 +16,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/adminProfile');
+        document.location.replace('/api/users/profile');
       } else {
         alert('Failed to create product');
       }
