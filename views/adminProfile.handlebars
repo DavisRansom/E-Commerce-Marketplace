@@ -28,7 +28,16 @@
         <label for="product-img">Image URL:</label>
         <input class="form-input" id="product-img" name="product-img" />
       </div>
-
+      
+      <!--{{category_name}}
+      <select class="form-select" id="autoSizingSelect">
+      <option selected>Category...</option>
+      {{#each category}}
+      <option value="id">{{category_name}}</option>
+      {{/each}}
+    </select>
+      -->
+      
       <div class="form-group">
         <button type="submit" class="btn btn-dark">Sell This!</button>
       </div>
@@ -58,7 +67,7 @@
   <input class="form-input" id="product-img" name="product-img" />
 </div>
 
-<script src="./js/sellerProfile.js"></script>
+<script src="../public/js/adminProfile.js"></script>
 
 {{!-- Closing statement for the loggedIn condition, if the admin is not logged in they are redirected to the login
 page--}}
