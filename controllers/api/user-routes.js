@@ -98,9 +98,10 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.logged_in = true 
+      
       req.session.user_id = userLogIn.id
       req.session.isAdmin = userLogIn.isAdmin
+      req.session.logged_in = true 
       //loggedIn condition then becomes true. This would allow the handlebar with the {{if loggedIn}} to be accessed
       res
         .status(200)
