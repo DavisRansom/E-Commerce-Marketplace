@@ -9,9 +9,9 @@ const signupFormHandler = async (event) => {
     const address = document.querySelector('#address-signup').value.trim();
     const phone_number = document.querySelector('#phone_number-signup').value.trim();
 
-    const isAdmin = document.querySelector('#idAdmin-signup')
+    const isAdmin = document.querySelector('#isAdmin')
     
-    console.log(isAdmin);
+    console.log(isAdmin.checked);
 
     if (!name || !email || !password || !address || !phone_number) {
         return;
@@ -22,7 +22,7 @@ const signupFormHandler = async (event) => {
         password,
         address,
         phone_number,
-        isAdmin
+        isAdmin: isAdmin.checked
     }
 
     fetch('/api/users/createuser', {

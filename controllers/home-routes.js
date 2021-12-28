@@ -3,14 +3,13 @@ const { Product, Category, User, Order } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    // let logged_in = req.session.logged_in
 
     let data = await Product.findAll()
-    console.log('*******************')
+    // console.log('*******************')
 
     let serializedData = data.map(product => product.get({ plain: true }));
 
-    console.log(serializedData);
+    // console.log(serializedData);
 
     res.render("homepage", { 
       serializedData,
