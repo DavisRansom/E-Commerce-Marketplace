@@ -4,12 +4,13 @@ const newFormHandler = async (event) => {
     const name = document.querySelector('#product-name').value.trim();
     const price = document.querySelector('#product-price').value.trim();
     const description = document.querySelector('#product-desc').value.trim();
-    const img_url = document.querySelector('#product-img');
+    const img_url = document.querySelector('#product-img').value.trim();
+    const category_id = document.querySelector('#category-select').value;
 
-    if (name && price && description&&img_url) {
+    if (name && price && description&&img_url && category_id) {
       const response = await fetch(`/api/products`, {
         method: 'POST',
-        body: JSON.stringify({ name, price, description,img_url }),
+        body: JSON.stringify({ name, price, description,img_url,category_id }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -32,7 +33,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/adminProfile');
+        document.location.replace('/api/users/profile')
       } else {
         alert('Failed to delete product');
       }
@@ -44,6 +45,6 @@ const newFormHandler = async (event) => {
     .addEventListener('submit', newFormHandler);
   
   document
-    .querySelector('.product-list')
+    .querySelector('.delete-btn')
     .addEventListener('click', delButtonHandler);
   
