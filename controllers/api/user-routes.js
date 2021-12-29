@@ -29,6 +29,11 @@ router.get('/:id', async (req, res) => {
 
 });
 
+
+router.get("/profile", (req, res) => {
+  console.table(req.session)
+})
+
 router.post('/createuser', async (req,res)=> { 
   try { 
 
@@ -44,17 +49,6 @@ router.post('/createuser', async (req,res)=> {
       res.json({ user: newUserData, message: 'Welcome!' });
     });
 
-<<<<<<< HEAD
-    req.session.save(() => { //when user logs in, the session is saved
-      req.session.loggedIn = true //loggedIn condition then becomes true. This would allow the handlebars with the {{if logged_in}} to be accessed
-      res.status(200).json(userLogIn);
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-=======
     //Catch error
 } catch (err) {
   res.status(400).json(err);
@@ -82,10 +76,10 @@ router.post('/createuser', async (req,res)=> {
 //     res.status(500).json(err);
 //   }
 // });
->>>>>>> 224ac56b9ac772f69c52ebafd8145b2cd4463979
 
 // Login
 router.post('/login', async (req, res) => {
+  console.table(req.body)
   try {
     const userLogIn = await User.findOne({
       where: {
