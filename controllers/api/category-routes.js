@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
     })
     //Add render for Category handlebars page here and pass in serialized Category data
     res.status(200).json(categoryData)
+    
   } catch (err) {
     res.status(500).json(err)
   }

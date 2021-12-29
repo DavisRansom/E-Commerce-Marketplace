@@ -28,39 +28,40 @@
         <label for="product-img">Image URL:</label>
         <input class="form-input" id="product-img" name="product-img" />
       </div>
-      
-      <!--{{category_name}}
-      <select class="form-select" id="autoSizingSelect">
-      <option selected>Category...</option>
-      {{#each category}}
-      <option value="id">{{category_name}}</option>
-      {{/each}}
-    </select>
-      -->
-      
+
+      <!--Category Select Drop Down Menu-->
+      <select class="form-select" id="category-select">
+        <option selected>Choose Category...</option>
+        {{#each categoryData}}
+        <option value="{{id}}">{{category_name}}</option>
+        {{/each}}
+      </select>
+
+
       <div class="form-group">
         <button type="submit" class="btn btn-dark">Sell This!</button>
       </div>
     </form>
   </div>
 
-  {{#if products.length}}
+  {{#if productData.length}}
   <div class="col-md-6 product-list">
     <h3>Current Products:</h3>
 
-    {{#each data|}}
+    {{#each productData}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/product/{{id}}">{{product_name}}</a></h4>
+        <h4><a href="/api/products/{{id}}">{{product_name}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{product.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" id='delete-btn' data-id="{{productData.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
   </div>
   {{/if}}
 </div>
+
 <!--Add Category Section-->
 <div class="form-group">
   <label for="product-img">Category:</label>

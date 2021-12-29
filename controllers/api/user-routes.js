@@ -55,6 +55,47 @@ router.post('/createuser', async (req,res)=> {
 }
 })
 
+// Update user Info
+router.put('/:id', async (req, res) => {
+
+  try {
+    const updatedUserData = await User.update(req.body, {
+    where: {
+      id: req.params.id,
+      
+    },
+    individualHooks: true,
+  });
+  if (!updatedUserData) {
+    res.status(404).json({ message: 'User with the provided id does not exist!'})
+    return;
+  }
+    res.status(200).json({ message: 'User Info updated!' })
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// Delete the selected User
+router.delete('/:id', async (req, res) => {
+
+  try {
+    const userData = await User.destroy({
+    where: {
+      id: req.params.id,
+    }
+  });
+  if (!userData) {
+    res.status(404).json({ message: `User number ${req.params.id} does not exist!`})
+    return
+  }
+    res.status(200).json({ message: `User number ${req.params.id} is successfully deleted!`})
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
 // router.post('/', async (req, res) => {
 //   try {
 //     const userLogIn = await User.create({
@@ -129,5 +170,7 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+
 
 module.exports = router;

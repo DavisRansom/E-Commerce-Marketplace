@@ -26,6 +26,7 @@ header, .product:not(:last-child) {
 .card-container{
   display: flex;
   justify-content: space-around;
+  margin: auto;
 }
 
 .card{
