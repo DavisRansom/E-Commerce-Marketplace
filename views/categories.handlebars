@@ -1,18 +1,11 @@
-<section class = "card-container">
-{{!-- this iterate the category lists --}}
-
-{{#each category as category}}
-
-<div class="row"> 
-    <h2>Categories of our Products</h2>
+<h1>Categories</h1>
+<div class = "card-container">
+{{#each serializedData}}
+<div class="card bg-dark text-white">
+  <img src="{{category_img}}" class="card-img cat-img" alt="">
+  <div class="card-img-overlay">
+    <h5 class="card-title"><a href="/api/categories/{{id}}">{{category_name}}</a></h5>
+  </div>
 </div>
-
-{{!-- this container hold visual links for each caterogies --}}
-<section class="flex-row justify-center">
-<div class="card">
-        <img src="{{category_img}}" alt= {{category_name}}/>
-    </a>
-</div>
-</section>
 {{/each}}
-</section>
+</div>

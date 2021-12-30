@@ -1,0 +1,17 @@
+<div class="container-fluid" id="card-container">
+{{#each serializedData.products}}
+<div class="card" style="width: 18rem;">
+  <img src="{{product_img}}" class="card-img-top" alt="{{alt}}" id="small-product">
+  <div class="card-body">
+    <h5 class="card-title"><a href="/api/products/{{id}}">{{product_name}}</a></h5>
+    <p>
+      <span for="img" aria-label="money">💲</span>
+      <!-- Pass needed_funding value to the helper function -->
+      <span class="dollar-amount">{{format_amount price}}</span>
+    </p>
+    <p class="card-text">{{description}}</p>
+    <a id='add-to-cart' class="btn btn-primary" data-id="{{id}}">Add To Cart</a>
+  </div>
+</div>
+{{/each}}
+</div>

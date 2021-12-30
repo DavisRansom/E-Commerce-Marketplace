@@ -15,10 +15,10 @@ Category.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      // category_img: {
-      //   type: DataTypes.STRING,
-      //   allowNull: false
-      // },
+      category_img: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
   },
   {
     sequelize,
