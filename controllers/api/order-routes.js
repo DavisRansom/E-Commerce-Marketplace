@@ -54,16 +54,21 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Create new order
+// Creates new order as long as it receives an appropriately formatted JSON document
 router.post('/neworder', async (req, res) => {
   try {
-   
+    const orderData = await Order.create({user_id: req.body.user_id});
+    const order_id = orderData.id;
 
-    
+    for await (product of req.body.products){
+      OrderProduct.create({...product, order_id});
+    }
+    res.status(200).json(orderData)
   } catch (err) {
     res.status(400).json(err);
   }  
 });
+
 
 // For fake payment
 router.post('/payment', async (req, res) => {

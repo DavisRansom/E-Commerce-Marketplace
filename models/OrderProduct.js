@@ -27,6 +27,12 @@ OrderProduct.init(
         model: "order",
         key: "id"
       }
+    },
+    unit_price: {
+      type: DataTypes.DECIMAL
+    },
+    quantity: {
+      type: DataTypes.INTEGER
     }
   },
   {
