@@ -9,6 +9,12 @@ router.get('/', async (req, res) => {
       include: [{model: Product}]
     })
     //Add render for Category handlebars page here and pass in serialized Category data
+    const category = categoryData.get({plain:true})
+
+    console.log(category,"render something")
+
+    res.render("categories", category)
+
     res.status(200).json(categoryData)
     
   } catch (err) {

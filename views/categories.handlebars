@@ -1,16 +1,18 @@
 <section class = "card-container">
 {{!-- this iterate the category lists --}}
-{{#each serializedData|}}
+
+{{#each category as category}}
 
 <div class="row"> 
-    <h2>{{category_name}}</h2>
+    <h2>Categories of our Products</h2>
 </div>
 
 {{!-- this container hold visual links for each caterogies --}}
 <section class="flex-row justify-center">
 <div class="card">
-        <img src="{{category_img}}" alt="Something"/>
+        <img src="{{category_img}}" alt= {{category_name}}/>
     </a>
 </div>
 </section>
+{{/each}}
 </section>
