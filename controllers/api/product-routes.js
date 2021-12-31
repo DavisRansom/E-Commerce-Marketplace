@@ -21,6 +21,16 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.get('/atc/:id', async (req, res) => {
+  try {
+    const productData = await Product.findByPk(req.params.id);
+    res.json(productData)
+    
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
+
 router.post('/', async (req, res) => {
   try {
     const productData = await Product.create(req.body);
