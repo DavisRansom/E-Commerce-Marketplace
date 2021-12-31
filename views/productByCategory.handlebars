@@ -1,3 +1,4 @@
+<h2>{{serializedData.category_name}}s</h2>
 <div class="container-fluid" id="card-container">
 {{#each serializedData.products}}
 <div class="card" style="width: 18rem;">
@@ -10,7 +11,7 @@
       <span class="dollar-amount">{{format_amount price}}</span>
     </p>
     <p class="card-text">{{description}}</p>
-    <a id='add-to-cart' class="btn btn-primary" data-id="{{id}}">Add To Cart</a>
+    <a class="btn btn-primary add-to-cart" data-id="{{id}}">Add To Cart</a>
   </div>
 </div>
 {{/each}}

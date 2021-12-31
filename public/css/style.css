@@ -41,3 +41,9 @@ header, .product:not(:last-child) {
   width: 285px;
   height: 275px;
 }
+#cat-link{
+  color:orangered;
+}
+.cart-btn{
+  color:goldenrod
+}
