@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
     }
     
     const serializedData = categoryData.get({plain: true})
-    // console.log(serializedData)
+    console.log(serializedData)
     // res.status(200).json(serializedData)
     res.render('productByCategory', { 
       serializedData, 
