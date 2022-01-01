@@ -68,53 +68,42 @@
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-  <div class= "container">
-    <footer class="row row-cols-5 py-5 mt-5 border-top">
 
-        <div class="container py-5">
-          <div class="row">
-            <div class="col-6 col-lg-2 mb-3">
-              <p class="copyright">Shady Market Place!☂️© 2018</p>
-            </div>
 
-            <div class="col"></div>
+    <footer class="row row-cols-5 py-5 mt-5 border-top footer-style">
+      <div class="col cp-style">
+        <p class="copyright">Shady Market Place!☂️© 2022</p>
+      </div>
+      <div class="col"></div>
+      <div class="col">
+        <h5>My Account</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="/api/users/profile" class="nav-link p-0 text-muted">My Profile</a></li>
+          <li class="nav-item mb-2"><a href="/api/users/products" class="nav-link p-0 text-muted">My Products</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">My Cart</a></li>
+        </ul>
+      </div>
 
-            <div class="col">
-              <h5>My Account</h5>
-              <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">My Profile</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">My Products</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">My Cart</a></li>
-              </ul>
-            </div>
+      <div class="col">
+        <h5>Legal</h5>
+        <ul class= "nav flex-column">
+          <li class="mav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Private Policy</a></li>
+          <li class="mav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Terms</a></li>
+        </ul>
+        </ul>
+      </div>
 
-            <div class="col footer-style">
-              <h2>Legal</h2>
-              <ul class= "nav flex-column">
-                <li class="mav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Private Policy</a></li>
-                <li class="mav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Terms</a></li>
-              </ul>
-              </ul>
-            </div>
-
-            <div class="col footer-style">
-            <h2>Contributer</h2>
-              <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="https://github.com/DavisRansom" class="nav-link p-0 text-muted">Davis Ransom</a></li>
-                <li class="nav-item mb-2"><a href="https://github.com/hekmatsalehi" class="nav-link p-0 text-muted">Hekmatullah Salehi</a></li>
-                <li class="nav-item mb-2"><a href="https://github.com/jpspann91" class="nav-link p-0 text-muted">Joseph Span</a></li>
-                <li class="nav-item mb-2"><a href="https://github.com/HCTyler" class="nav-link p-0 text-muted">Edgar Fernandez</a></li>
-                <li class="nav-item mb-2"><a href="https://github.com/CaseyHiggy" class="nav-link p-0 text-muted">Casey Higgy</a></li>
-              </ul>
-            </div>
-          </div>
-
-        
-        </div>
-
+      <div class="col">
+      <h5>Contributer</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="https://github.com/DavisRansom" class="nav-link p-0 text-muted">Davis Ransom</a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/hekmatsalehi" class="nav-link p-0 text-muted">Hekmatullah Salehi</a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/jpspann91" class="nav-link p-0 text-muted">Joseph Span</a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/HCTyler" class="nav-link p-0 text-muted">Edgar Fernandez</a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/CaseyHiggy" class="nav-link p-0 text-muted">Casey Higgy</a></li>
+        </ul>
       </div>
     </footer>
-  </div>
   </div>
 
   <!-- Render script for logged in users only -->
