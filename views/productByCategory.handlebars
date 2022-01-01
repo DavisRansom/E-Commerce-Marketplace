@@ -1,5 +1,6 @@
+<h2>{{serializedData.category_name}}s</h2>
 <div class="container-fluid" id="card-container">
-{{#each serializedData}}
+{{#each serializedData.products}}
 <div class="card" style="width: 18rem;">
   <img src="{{product_img}}" class="card-img-top" alt="{{alt}}" id="small-product">
   <div class="card-body">
@@ -15,4 +16,3 @@
 </div>
 {{/each}}
 </div>
-<script src=""></script>

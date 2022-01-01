@@ -15,7 +15,7 @@ const categoryData = [
   },
   {
     category_name: 'Shade',
-    category_img: '',
+    category_img: 'https://golf.com/wp-content/uploads/2020/07/tree.jpg',
   },
   {
     category_name: 'PC',
