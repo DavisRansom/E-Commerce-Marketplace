@@ -1,9 +1,10 @@
 {{!-- Admin page won't render until the 'loggedIn' condition is true --}}
-{{#if adminLogin}}
-
+{{#if logged_in}}
+<h1>Admin Profile Page</h1>
+<br>
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+    <h2>Welcome, {{serializedUserData.name}}!</h2>
   </div>
 </div>
 
@@ -28,14 +29,19 @@
         <label for="product-img">Image URL:</label>
         <input class="form-input" id="product-img" name="product-img" />
       </div>
+      <div class="form-group">
+        <label for="product-alt">Image Alt Tag:</label>
+        <input class="form-input" id="product-img" name="product-alt" />
+      </div>
 
       <!--Category Select Drop Down Menu-->
+      {{!-- <label for="category-select">Category:</label>
       <select class="form-select" id="category-select">
         <option selected>Choose Category...</option>
-        {{#each categoryData}}
+        {{#each serializedCategoryData}}
         <option value="{{id}}">{{category_name}}</option>
         {{/each}}
-      </select>
+      </select> --}}
 
 
       <div class="form-group">
@@ -44,17 +50,17 @@
     </form>
   </div>
 
-  {{#if productData.length}}
+  {{#if serializedProductData.length}}
   <div class="col-md-6 product-list">
     <h3>Current Products:</h3>
 
-    {{#each productData}}
+    {{#each serializedProductData}}
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/api/products/{{id}}">{{product_name}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" id='delete-btn' data-id="{{productData.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" id='delete-btn' data-id="{{id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
@@ -63,12 +69,22 @@
 </div>
 
 <!--Add Category Section-->
-<div class="form-group">
-  <label for="product-img">Category:</label>
-  <input class="form-input" id="product-img" name="product-img" />
-</div>
+<h2> Add A Category</h2>
+<form class="form new-category-form">
+  <div class="form-group">
+    <label for="product-img">Category:</label>
+    <input class="form-input" id="category_name" name="category_name" />
+  </div>
+  <div class="form-group">
+    <label for="product-img">Category Image URL:</label>
+    <input class="form-input" id="category_img" name="category-img" />
+  </div>
+  <div class="form-group">
+    <button type='submit' class="btn btn-success">Add</button>
+  </div>
+</form>
 
-<script src="../public/js/adminProfile.js"></script>
+<script src="/js/adminProfile.js"></script>
 
 {{!-- Closing statement for the loggedIn condition, if the admin is not logged in they are redirected to the login
 page--}}

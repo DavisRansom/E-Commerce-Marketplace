@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err)
   }
 });
-
+//Get route for when adding to cart. Needed to just return data instead of rendering a handlebars page
 router.get('/atc/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id);
