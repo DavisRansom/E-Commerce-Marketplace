@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { render } = require('express/lib/response');
+const { User, Category, Product } = require('../../models');
 
 router.get('/', async (req, res) => {
 
@@ -30,9 +31,6 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.get("/profile", (req, res) => {
-  console.table(req.session)
-})
 
 router.post('/createuser', async (req,res)=> { 
   try { 
