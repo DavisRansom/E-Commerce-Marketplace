@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
+const { findAll } = require('../../models/User');
+
 
 
 router.get('/', async (req, res) => {
@@ -21,6 +23,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(err)
   }
 });
+
 
 router.get('/:id', async (req, res) => {
 

@@ -1,4 +1,4 @@
-const productFormHandler = async (event) => {
+const addProductHandler = async (event) => {
     event.preventDefault();
 
     
@@ -7,10 +7,10 @@ const productFormHandler = async (event) => {
     const price = document.querySelector('#product-price').value.trim();
     const description = document.querySelector('#product-desc').value.trim();
     const product_img = document.querySelector('#product-img').value.trim();
-    const alt = document.querySelector('#product-alt').value.trim()
-    // const categoryIdEl = document.querySelector('#category-select');
+    const alt = document.querySelector('#product-alt').value.trim();
+    const categoryIdEl = document.querySelector('#category-select');
 
-    // const category_id = categoryIdEl.value
+    const category_id = categoryIdEl.value
 
     // console.log(category_id);
 
@@ -22,8 +22,26 @@ const productFormHandler = async (event) => {
           'Content-Type': 'application/json',
         },
       });
-  
+      
+      //Grab id of the product we just create above
+      let product_id;
+
       if (response.ok) {
+        await fetch('/api/products')
+        .then((res)=>{
+          return res.json()
+        }).then((products)=>{
+          product_id = products[products.length - 1].id
+        })
+
+        const catProdResponse = await fetch(`/api/categoryproducts`, {
+          method: 'POST',
+          body: JSON.stringify({ product_id, category_id}),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
         alert('Product has been created');
         document.location.replace('/api/users/profile');
       } else {
@@ -33,8 +51,12 @@ const productFormHandler = async (event) => {
   };
   
   const delButtonHandler = async (event) => {
+
+    console.log(event.target.getAttribute('data-id'));
+
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
+      console.log(id)
   
       const response = await fetch(`/api/products/${id}`, {
         method: 'DELETE',
@@ -80,9 +102,8 @@ const productFormHandler = async (event) => {
   
   document
     .querySelector('.new-product-form')
-    .addEventListener('submit', productFormHandler);
+    .addEventListener('submit', addProductHandler);
   
-  document
-    .querySelector('#delete-btn')
-    .addEventListener('click', delButtonHandler);
+  $(document)
+    .on('click', '.delete-btn', delButtonHandler);
   

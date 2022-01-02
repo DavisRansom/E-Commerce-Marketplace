@@ -31,17 +31,18 @@
       </div>
       <div class="form-group">
         <label for="product-alt">Image Alt Tag:</label>
-        <input class="form-input" id="product-img" name="product-alt" />
+        <input class="form-input" id="product-alt" name="product-alt" />
       </div>
 
+
       <!--Category Select Drop Down Menu-->
-      {{!-- <label for="category-select">Category:</label>
+      <label for="category-select">Category:</label>
       <select class="form-select" id="category-select">
         <option selected>Choose Category...</option>
         {{#each serializedCategoryData}}
         <option value="{{id}}">{{category_name}}</option>
         {{/each}}
-      </select> --}}
+      </select>
 
 
       <div class="form-group">
@@ -60,7 +61,7 @@
         <h4><a href="/api/products/{{id}}">{{product_name}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" id='delete-btn' data-id="{{id}}"><i class="fas fa-times-circle"></i></button>
+        <button class="btn btn-sm btn-danger delete-btn" data-id="{{id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
@@ -85,6 +86,10 @@
 </form>
 
 <script src="/js/adminProfile.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 
 {{!-- Closing statement for the loggedIn condition, if the admin is not logged in they are redirected to the login
 page--}}
