@@ -3,7 +3,9 @@ const { OrderProduct } = require('../models');
 const orderProductData = [
   {
     product_id: 1,
-    order_id: 2
+    order_id: 2,
+    quantity: 10,
+    unit_price: 15.00
   },
   {
     product_id: 2,
