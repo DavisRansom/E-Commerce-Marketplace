@@ -13,6 +13,30 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/profile', async (req,res) => {
+  try {
+    const logged_in = req.session.logged_in;
+    const isAdmin = req.session.isAdmin;
+
+    if(isAdmin) {
+      let userData = await User.findByPk(req.session.user_id);
+      let serializedUserData = userData.get({plain:true});
+      // console.log(userData);
+      let categoryData = await Category.findAll();
+      let serializedCategoryData = categoryData.map(category => category.get({plain:true}));
+      // console.log(categoryData);
+      let productData = await Product.findAll();
+      let serializedProductData = productData.map(product => product.get({plain:true}));
+      // console.log(productData);
+      // console.log(serializedCategoryData, serializedProductData, serializedUserData)
+      res.render('adminProfile', {logged_in, serializedUserData, serializedCategoryData, serializedProductData});
+    }
+    
+  } catch (error) {
+    res.status(500).json(error)
+  }
+});
+
 router.get('/:id', async (req, res) => {
 
   try {
