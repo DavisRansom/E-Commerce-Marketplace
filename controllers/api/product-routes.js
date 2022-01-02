@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Product, Category} = require('../../models');
+const { Router } = require('express');
+const { Product, Category, CategoryProduct} = require('../../models');
 
 
 router.get('/:id', async (req, res) => {
@@ -17,7 +18,7 @@ router.get('/:id', async (req, res) => {
     res.render("product", product); 
 
   } catch (err) {
-    res.status(500).json(err)
+    res.status(400).json(err)
   }
 });
 //Get route for when adding to cart. Needed to just return data instead of rendering a handlebars page
@@ -30,6 +31,7 @@ router.get('/atc/:id', async (req, res) => {
     res.status(400).json(err);
   }
 })
+
 
 router.post('/', async (req, res) => {
   try {

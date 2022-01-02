@@ -8,8 +8,7 @@ router.get('/', async (req, res) => {
     const categoryData = await Category.findAll({
       include: [{model: Product}]
     })
-    //Add render for Category handlebars page here and pass in serialized Category data
-    // res.status(200).json(categoryData)
+    
     const serializedData = categoryData.map(category => category.get({plain: true}))
 
     console.log(serializedData);
@@ -45,6 +44,7 @@ router.get('/:id', async (req, res) => {
   }  
 
 });
+
 
 router.post('/', async (req, res) => {
 

@@ -34,7 +34,7 @@ const addToCart = async (event) => {
             })
     }
 }
-
+//Updates the cart number for items in cart
 let cartSizeEl = document.querySelector('#cart-size');
 let cartObject = localStorage.getItem('products')
 let cartSizeValue;
