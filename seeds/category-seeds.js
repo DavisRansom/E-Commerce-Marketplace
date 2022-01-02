@@ -10,7 +10,7 @@ const categoryData = [
     category_img: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-tablets-1592809487.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*',
   },
   {
-    category_name: 'Labtop',
+    category_name: 'Laptop',
     category_img: 'https://s.yimg.com/uu/api/res/1.2/Z7jFGzCKLpv3m2N5uRi12Q--~B/aD0xMzAwO3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-11/a179f550-3b11-11ec-86df-fa28310e5588.cf.jpg',
   },
   {
