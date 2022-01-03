@@ -1,7 +1,26 @@
 const router = require('express').Router();
+const { Router } = require('express');
 const { Product, Category} = require('../../models');
 
 
+router.get('/', async (req, res) => {
+
+  try {
+    const productData = await Product.findAll();
+    // console.log(productData);
+    if (!productData) {
+      res.status(404).json({ message: 'Product with the provided id does not exist!'})
+      return
+    }
+    // const product = productData.get({plain:true})
+    // console.log(product);
+
+    res.status(200).json(productData)
+
+  } catch (err) {
+    res.status(400).json(err)
+  }
+  })
 router.get('/:id', async (req, res) => {
  
   try {
@@ -17,10 +36,10 @@ router.get('/:id', async (req, res) => {
     res.render("product", product); 
 
   } catch (err) {
-    res.status(500).json(err)
+    res.status(400).json(err)
   }
 });
-
+//Get route for when adding to cart. Needed to just return data instead of rendering a handlebars page
 router.get('/atc/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id);
@@ -30,6 +49,7 @@ router.get('/atc/:id', async (req, res) => {
     res.status(400).json(err);
   }
 })
+
 
 router.post('/', async (req, res) => {
   try {

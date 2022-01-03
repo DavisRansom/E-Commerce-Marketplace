@@ -44,7 +44,7 @@ header, .product:not(:last-child) {
 #cat-link{
   color:orangered;
 }
-.cart-btn{
+.cart-btn a{
   color:goldenrod
 }
 

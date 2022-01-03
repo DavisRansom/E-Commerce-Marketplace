@@ -7,7 +7,7 @@ const addToCart = async (event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
 
-        await fetch(`api/products/atc/${id}`, {
+        await fetch(`/api/products/atc/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const addToCart = async (event) => {
             })
     }
 }
-
+//Updates the cart number for items in cart
 let cartSizeEl = document.querySelector('#cart-size');
 let cartObject = localStorage.getItem('products')
 let cartSizeValue;
