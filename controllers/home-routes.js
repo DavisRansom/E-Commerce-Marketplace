@@ -39,6 +39,16 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+// Render checkout page
+router.get('/cartitems', (req, res) => {
+  res.render('checkout');
+});
+
+// Render success page upon successfull checkout
+router.get('/success', (req, res) => {
+  res.render('success');
+});
+
 
 module.exports = router;
 
