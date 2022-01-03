@@ -9,6 +9,10 @@ module.exports = {
       },
       timeConvert: (time)=> { 
         return time.toLocaleDateString()
+      },
+
+      get_local_storage: () => {
+        return JSON.parse(localStorage.getItem('products'));
       }
     };
 

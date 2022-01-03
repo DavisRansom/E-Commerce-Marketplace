@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Product, Category, User, Order } = require('../models');
+var ls = require('local-storage');
 
 router.get('/', async (req, res) => {
   try {
@@ -40,8 +41,16 @@ router.get('/signup', (req, res) => {
 });
 
 // Render checkout page
+
+
 router.get('/cartitems', (req, res) => {
-  res.render('checkout');
+
+  const logged_in = req.session.logged_in
+  
+
+  res.render('checkout',{logged_in})
+
+  
 });
 
 // Render success page upon successfull checkout
