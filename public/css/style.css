@@ -47,3 +47,7 @@ header, .product:not(:last-child) {
 .cart-btn a{
   color:goldenrod
 }
+
+#product-quantity {
+  width: 60px;
+}
