@@ -28,11 +28,12 @@ OrderProduct.init(
         key: "id"
       }
     },
-    unit_price: {
-      type: DataTypes.DECIMAL
-    },
+    // unit_price: {
+    //   type: DataTypes.DECIMAL
+    // },
     quantity: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      defaultValue: 1,
     }
   },
   {

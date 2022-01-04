@@ -57,3 +57,6 @@ footer p {
   direction: rtl;
   white-space: wrap;
 }
+#product-quantity {
+  width: 60px;
+}

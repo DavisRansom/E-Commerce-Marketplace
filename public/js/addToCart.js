@@ -1,6 +1,4 @@
 let productArray = [];
-
-
 //Add to Cart function stores into local storage
 const addToCart = async (event) => {
 
@@ -16,7 +14,8 @@ const addToCart = async (event) => {
             return response.json()
         })
             .then((productData) => {
-                const localStorageArray = JSON.parse(localStorage.getItem('products'));
+                
+                const localStorageArray = JSON.parse(localStorage.getItem('products'))
                 if (localStorageArray === null) {
                     productArray.push(productData)
                     localStorage.setItem('products', JSON.stringify(productArray))
