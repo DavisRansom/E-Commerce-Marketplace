@@ -1,16 +1,16 @@
 <div class="card text-center">
   <div class="card-header">
-    <h1>{{product_name}}</h1>
+    <h1>{{product.product_name}}</h1>
   </div>
-  <img src="{{product_img}}" class="card-img-top" alt="{{alt}}" id="large-product">
+  <img src="{{product.product_img}}" class="card-img-top" alt="{{product.alt}}" id="large-product">
   <div class="card-body">
-    <p class="card-text">{{description}}</p>
+    <p class="card-text">{{product.description}}</p>
     <p>
       <span for="img" aria-label="money">💲</span>
       <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount price}}</span>
+      <span class="dollar-amount">{{format_amount product.price}}</span>
     </p>
-    <a type="button" class="btn btn-dark add-to-cart" data-id="{{id}}">Add To Cart</a>
+    <a type="button" class="btn btn-dark add-to-cart" data-id="{{product.id}}">Add To Cart</a>
   </div>
   <div class="card-footer text-muted">
   </div>
