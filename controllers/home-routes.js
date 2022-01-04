@@ -55,7 +55,8 @@ router.get('/cartitems', (req, res) => {
 
 // Render success page upon successfull checkout
 router.get('/success', (req, res) => {
-  res.render('success');
+  const logged_in = req.session.logged_in
+  res.render('success',{logged_in});
 });
 
 
