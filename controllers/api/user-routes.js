@@ -117,28 +117,6 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-// router.post('/', async (req, res) => {
-//   try {
-//     const userLogIn = await User.create({
-//       name: req.body.name,
-//       address: req.body.address,
-//       phone_number: req.body.phone_number,
-//       email: req.body.email,
-//       password: req.body.password,
-//       isAdmin: req.body.isAdmin,
-//       //creating new users, follows the user model for signing up new person
-//     });
-
-//     req.session.save(() => { //when user logs in, the session is saved
-//       req.session.loggedIn = true //loggedIn condition then becomes true. This would allow the handlebars with the {{if loggedIn}} to be accessed
-//       res.status(200).json(userLogIn);
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
 // Login
 router.post('/login', async (req, res) => {
   console.table(req.body)
