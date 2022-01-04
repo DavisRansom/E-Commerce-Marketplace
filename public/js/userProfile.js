@@ -1,12 +1,14 @@
 const newFormHandler = async (event) => {
-    event.preventDeafult();
+    event.preventDefault();
+    console.log('HELLO FROM THE FORM HANDLER')
 
-    const id = document.querySelector('#user-id').value.trim();
+    const id = document.querySelector('#user-id').textContent;
+    console.log(id);
     const name = document.querySelector('#user-name').value.trim();
-    const address = document.querySelector('#user-name').value.trim();
-    const phone_number = document.querySelector('#user-name').value.trim();
-    const email = document.querySelector('#user-name').value.trim();
-    const password = document.querySelector('#user-name').value.trim();
+    const address = document.querySelector('#user-address').value.trim();
+    const phone_number = document.querySelector('#user-phone-number').value.trim();
+    const email = document.querySelector('#user-email').value.trim();
+    const password = document.querySelector('#user-password').value.trim();
 
     if(name && address && phone_number && email && password){
         const response = await fetch(`/api/users/${id}`, {
