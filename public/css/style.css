@@ -49,8 +49,9 @@ header, .product:not(:last-child) {
 }
 
 .footer-style{
-  background-color:rgba(211, 210, 210, 0.534);
-  width:100%
+  background-color:rgba(211, 210, 210, 0.5);
+  width:100%;
+  bottom: 0;
 }
 
 footer p {
@@ -59,4 +60,8 @@ footer p {
 }
 #product-quantity {
   width: 60px;
+}
+
+body{
+  background-image: linear-gradient(rgb(49, 49, 49),rgba(211, 210, 210, 0.4))
 }

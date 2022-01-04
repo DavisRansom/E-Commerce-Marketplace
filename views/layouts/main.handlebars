@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shady Market Place!☂️</title>
+  <title>Shady Market Place</title>
+  <link rel="shortcut icon" type="image/jpg" href="/public/images/ShadyMarket.png"/>
   <link rel="stylesheet" href="/css/jass.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -17,18 +18,18 @@
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+    <header class="display-flex justify-space-between align-center bg-dark p-2">
       <h1>
-        <span role="img" aria-label="umbrella">☂️</span>
-        <a href="/">Shady Market Place!</a>
+        {{!-- <span role="img" aria-label="umbrella">☂️</span> --}}
+        <a href="/"><img src="/public/images/Shade Market Place.png" alt="Shady Market Place"></a>
       </h1>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark ">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse navfreestyle" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link active" href="/">Home</a>
@@ -78,9 +79,9 @@
       <div class="col">
         <h5>Help</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="/api/users/profile" class="nav-link p-0 text-muted">My Account</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Cart</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Payment</a></li>
+          <li class="nav-item mb-2"><a href="http://localhost:3001/api/users/profile" class="nav-link p-0 text-muted">My Account</a></li>
+          <li class="nav-item mb-2"><a href="http://localhost:3001/cartitems" class="nav-link p-0 text-muted">Cart</a></li>
+          <li class="nav-item mb-2"><a href="http://localhost:3001/" class="nav-link p-0 text-muted">Payment</a></li>
         </ul>
       </div>
 
@@ -97,12 +98,11 @@
       <div class="col">
       <h5>About Us</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="https://github.com/CaseyHiggy" class="nav-link p-0 text-muted"><img src="https://avatars.githubusercontent.com/u/85075974?v=4" alt="@CaseyHiggy" size="32" height="32" width="32" data-view-component="true" class="avatar circle">Casey Higgy</a></li>
-          <li class="nav-item mb-2"><a href="https://github.com/DavisRansom" class="nav-link p-0 text-muted"><img src="https://avatars.githubusercontent.com/u/83324065?v=4" alt="@DavisRansom" size="32" height="32" width="32" data-view-component="true" class="avatar circle">Davis Ransom</a></li>
-          <li class="nav-item mb-2"><a href="https://github.com/hekmatsalehi" class="nav-link p-0 text-muted"><img src="https://avatars.githubusercontent.com/u/89723436?v=4" alt="@hekmatsalehi" size="32" height="32" width="32" data-view-component="true" class="avatar circle">Hekmatullah Salehi</a></li>
-          <li class="nav-item mb-2"><a href="https://github.com/jpspann91" class="nav-link p-0 text-muted"><img src="https://avatars.githubusercontent.com/u/47608744?v=4" alt="@jpspann91" size="32" height="32" width="32" data-view-component="true" class="avatar circle">Joseph Span</a></li>
-
-          <li class="nav-item mb-2"><a href="https://github.com/HCTyler" class="nav-link p-0 text-muted"><img src="https://avatars.githubusercontent.com/u/86133108?v=4" alt="@HCTyler" size="32" height="32" width="32" data-view-component="true" class="avatar circle">Edgar Fernandez</a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/CaseyHiggy" class="nav-link p-0 text-muted"><img src="https://avatars.githubusercontent.com/u/85075974?v=4" alt="@CaseyHiggy" size="32" height="32" width="32" data-view-component="true">Casey Higgy</a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/DavisRansom" class="nav-link p-0 text-muted"><img src="https://avatars.githubusercontent.com/u/83324065?v=4" alt="@DavisRansom" size="32" height="32" width="32" data-view-component="true">Davis Ransom</a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/HCTyler" class="nav-link p-0 text-muted"><img src="https://avatars.githubusercontent.com/u/86133108?v=4" alt="@HCTyler" size="32" height="32" width="32" data-view-component="true">Edgar Fernandez</a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/hekmatsalehi" class="nav-link p-0 text-muted"><img src="https://avatars.githubusercontent.com/u/89723436?v=4" alt="@hekmatsalehi" size="32" height="32" width="32" data-view-component="true">Hekmatullah Salehi</a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/jpspann91" class="nav-link p-0 text-muted"><img src="https://avatars.githubusercontent.com/u/47608744?v=4" alt="@jpspann91" size="32" height="32" width="32" data-view-component="true">Joseph Span</a></li>
 
         </ul>
       </div>
@@ -112,7 +112,7 @@
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{!-- <script src="js/addToCart.js"></script> --}}
+  <script src="/public/js/addToCart.js"></script>
   {{/if}}
 
 
