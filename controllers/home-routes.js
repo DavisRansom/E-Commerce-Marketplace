@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
     // console.log(serializedData);
 
-    res.render("homepage", { 
+    res.render("homepage", {
       serializedData,
       logged_in: req.session.logged_in
     });
@@ -46,31 +46,32 @@ router.get('/signup', (req, res) => {
 router.get('/cartitems', (req, res) => {
 
   const logged_in = req.session.logged_in
-  
 
-  res.render('checkout',{logged_in})
 
-  
+  res.render('checkout', { logged_in })
+
+
 });
 
 // Render success page upon successfull checkout
-router.get('/success', (req, res) => {
-  res.render('success');
+
+router.get('/success', async (req, res) => {
+  try {
+    const logged_in = req.session.logged_in
+
+    const userData = await User.findByPk(req.session.user_id);
+
+    const serializedData = userData.get({ plain: true });
+
+    console.log(serializedData)
+
+    res.render('success', { serializedData, logged_in });
+
+  } catch (error) {
+
+  }
 });
 
 
 module.exports = router;
 
-
-
-// router.get('/', async (req, res) => {
-//     try {
-//         req.session.save(() => {
-//             if (req.session.countVisit) {
-//                 req.session.countVisit++;
-//             } else {
-//                 req.session.countVisit = 1;
-//             }
-//         })
-//     }
-//     });

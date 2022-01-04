@@ -32,9 +32,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
  
   try {
+    // const logged_in = req.session.logged_in;
     const orderData = await Order.findByPk(req.params.id, {
       include: [ User, { model: Product, through: OrderProduct}]
-      
     });
     console.log('------Raw Data------')
     console.log(orderData)
@@ -46,7 +46,7 @@ router.get('/:id', async (req, res) => {
     const order = orderData.get({plain:true})
     console.log('--------Clean Data-------')
     console.log(order)
-    // res.render("order", order);
+    // res.render("order", {order, logged_in});
     
     res.status(200).json(order)
   } catch (err) {
@@ -54,10 +54,19 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  try {
+    const orderData = await Order.create({user_id: req.session.user_id});
+    res.status(200).json(orderData);
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
+
 // Creates new order as long as it receives an appropriately formatted JSON document
 router.post('/neworder', async (req, res) => {
   try {
-    const orderData = await Order.create({user_id: req.session.user_id});
+    const orderData = await Order.create(req.body);
     const order_id = orderData.id;
 
     for await (product of req.body.products){

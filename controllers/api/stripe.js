@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
-
-
 const storeItems = new Map([
     [1, { priceInCents: 130000, name: "iPhone 13" }],
     [2, { priceInCents: 15000, name: "Ray-Ban Sunglasses" }],
