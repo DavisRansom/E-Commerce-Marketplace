@@ -54,10 +54,19 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  try {
+    const orderData = await Order.create({user_id: req.session.user_id});
+    res.status(200).json(orderData);
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
+
 // Creates new order as long as it receives an appropriately formatted JSON document
 router.post('/neworder', async (req, res) => {
   try {
-    const orderData = await Order.create({user_id: req.session.user_id});
+    const orderData = await Order.create(req.body);
     const order_id = orderData.id;
 
     for await (product of req.body.products){
