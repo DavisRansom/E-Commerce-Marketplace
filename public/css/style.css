@@ -47,6 +47,12 @@ header, .product:not(:last-child) {
 .cart-btn a{
   color:goldenrod
 }
+#product-quantity {
+  width: 60px;
+}
+.categorystyle{
+  
+}
 
 .footer-style{
   background-color:rgba(211, 210, 210, 0.5);
@@ -58,9 +64,7 @@ footer p {
   direction: rtl;
   white-space: wrap;
 }
-#product-quantity {
-  width: 60px;
-}
+
 
 body{
   background-image: linear-gradient(rgb(49, 49, 49),rgba(211, 210, 210, 0.4))

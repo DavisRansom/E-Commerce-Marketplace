@@ -1,7 +1,7 @@
 <h1>Browse by...</h1>
 <div class = "card-container">
 {{#each serializedData}}
-<div class="card w-75 bg-dark text-white">
+<div class="card w-75 bg-dark text-white justify-content categorystyle">
   <img src="{{category_img}}" class="card-img cat-img" alt="">
   <div class="card-img-overlay">
     <h5 class="card-title"><a id='cat-link' href="/api/categories/{{id}}">{{category_name}}</a></h5>
