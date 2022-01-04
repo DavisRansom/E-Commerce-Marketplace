@@ -1,28 +1,28 @@
 <h1>Edit Personal Info</h1> 
 <form class="form user-form">
 <div class="mb-3">
-    <label class="form-label" id="user-id">User ID:{{id}}</label>
+    <label class="form-label" for="user-id">User ID:<span id="user-id">{{serializedUserData.id}}</span></label>
 </div>    
 <div class="mb-3">
   <label for="user-name" class="form-label">Name:</label>
-  <input type="text" class="form-control" id="user-name" placeholder="{{name}}">
+  <input type="text" class="form-control" id="user-name" placeholder="{{serializedUserData.name}}">
 </div>
 <div class="mb-3">
   <label for="user-address" class="form-label">Address:</label>
-  <input type="text" class="form-control" id="user-address" placeholder="{{address}}">
+  <input type="text" class="form-control" id="user-address" placeholder="{{serializedUserData.address}}">
 </div>
 <div class="mb-3">
   <label for="user-phone-number" class="form-label">Phone-Number:</label>
-  <input type="text" class="form-control" id="user-phone-number" placeholder="{{phone_number}}">
+  <input type="text" class="form-control" id="user-phone-number" placeholder="{{serializedUserData.phone_number}}">
 </div>
 <div class="mb-3">
   <label for="user-email" class="form-label">Email:</label>
-  <input type="text" class="form-control" id="user-email" placeholder="{{email}}">
+  <input type="text" class="form-control" id="user-email" placeholder="{{serializedUserData.email}}">
 </div>
 <div class="mb-3">
   <label for="user-password" class="form-label">Password:</label>
-  <input type="text" class="form-control" id="user-password" placeholder="{{password}}">
+  <input type="password" class="form-control" id="user-password" placeholder="{{serializedUserData.password}}">
 </div>
 <button type="submit" class="btn btn-success">Save</button>
 </form>
-<script src="../public/js/userProfile.js"></script>
+<script src="/js/userProfile.js"></script>

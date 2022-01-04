@@ -1,0 +1,38 @@
+<h1>User Profile Page</h1>
+<div class="row">
+    <div class="col-auto">
+        <h2>Welcome, {{serializedUserData.name}}!</h2>
+    </div>
+</div>
+<div id='user-info'>
+    <ul class="list-group">
+        <label for="user-id" class="form-label">ID: <li class="list-group-item disabled" aria-disabled="true"
+                id="user-id">{{serializedUserData.id}}</li></label>
+        <label for="user-name" class="form-label">Name: <li class="list-group-item disabled" aria-disabled="true"
+                id="user-name">{{serializedUserData.name}}</li></label>
+        <label for="user-address" class="form-label">Address: <li class="list-group-item disabled" aria-disabled="true"
+                id="user_name">{{serializedUserData.address}}</li></label>
+        <label for="user-phone-number" class="form-label">Phone Number: <li class="list-group-item disabled"
+                aria-disabled="true" id="user_name">{{serializedUserData.phone_number}}</li></label>
+        <label for="user-email" class="form-label">Email: <li class="list-group-item disabled" aria-disabled="true"
+                id="user_name">{{serializedUserData.email}}</li></label>
+        <label for="user-password" class="form-label">Password (Encrypted): <li type="password"
+                class="list-group-item disabled" aria-disabled="true" id="user_name">{{serializedUserData.password}}
+            </li></label>
+    </ul>
+    <button type="submit" class="btn btn-primary"><a href='/api/users/profile/edit'>Edit</a></button>
+</div>
+
+<!--THIS IS WHERE ORDER INFO WILL GO MUST FIX CART ISSUES FIRST -->
+<div id="order-info">
+    {{#each serializedOrder}}
+    <!--LIST OF ALL PRODUCTS IN THIS ORDER-->
+    <ul>
+        {{#each serializedOrderData.products}}
+
+        {{/each}}
+    </ul>
+
+    {{/each}}
+
+</div>
