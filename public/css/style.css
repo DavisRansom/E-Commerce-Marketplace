@@ -48,6 +48,15 @@ header, .product:not(:last-child) {
   color:goldenrod
 }
 
+.footer-style{
+  background-color:rgba(211, 210, 210, 0.534);
+  width:100%
+}
+
+footer p {
+  direction: rtl;
+  white-space: wrap;
+}
 #product-quantity {
   width: 60px;
 }
