@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product, Category, User, Order } = require('../models');
+const { Product, Category, User, Order,OrderProduct } = require('../models');
 var ls = require('local-storage');
 
 router.get('/', async (req, res) => {
@@ -47,9 +47,11 @@ router.get('/cartitems', (req, res) => {
 
   const logged_in = req.session.logged_in
 
-
-  res.render('checkout', { logged_in })
-
+  if (!logged_in) {
+    res.render('login')
+  } else {
+    res.render('checkout', { logged_in })
+  }
 
 });
 

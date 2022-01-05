@@ -1,7 +1,7 @@
 <h2>{{serializedData.category_name}}s</h2>
 <div class="container-fluid" id="card-container">
 {{#each serializedData.products}}
-<div class="card" style="width: 18rem;">
+<div class="card border-info mb-3" style="width: 18rem;">
   <img src="{{product_img}}" class="card-img-top" alt="{{alt}}" id="small-product">
   <div class="card-body">
     <h5 class="card-title"><a href="/api/products/{{id}}">{{product_name}}</a></h5>
@@ -10,7 +10,7 @@
       <!-- Pass needed_funding value to the helper function -->
       <span class="dollar-amount">{{format_amount price}}</span>
     </p>
-    <p class="card-text">{{description}}</p>
+    <p class="card-text">Stock: {{stock}}</p>
     <a class="btn btn-primary add-to-cart" data-id="{{id}}">Add To Cart</a>
   </div>
 </div>

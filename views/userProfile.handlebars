@@ -25,16 +25,37 @@
 
 <!--THIS IS WHERE ORDER INFO WILL GO MUST FIX CART ISSUES FIRST -->
 <h2>Past Orders</h2>
-<div id="order-info">
+<div class='card-group ' id="order-info">
     {{#each serializedOrderData}}
-    <h4>Order ID: {{serializedOrderData.id}}</h4>
-    <!--LIST OF ALL PRODUCTS IN THIS ORDER-->
-    <ul class="list-group">
-        {{#each serializedOrderData.products}}
-            <li class="list-group-item disabled" aria-disabled="true"><a href="/api/products/{{id}}" target="_blank">{{product_name}}: </a><span class="dollar-amount">{{format_amount price}}</span></li>
-        {{/each}}
-    </ul>
-
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <h4>Order ID: {{id}}</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Products Purchased: </h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">PID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">$</th>
+                        <th scope="col">Qnty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.products}}
+                    <tr>
+                        <th scope="row">{{this.id}}</th>
+                        <td><a href="/api/products/{{this.id}}" target="_blank">{{product_name}}:</a></td>
+                        <td><span class="dollar-amount">${{format_amount price}}</span>
+                        </td>
+                        <td>1</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table> 
+        </div>
+    </div>
     {{/each}}
-
 </div>
+<script src="../../js/addToCart.js"></script>

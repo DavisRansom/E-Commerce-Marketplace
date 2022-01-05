@@ -12,7 +12,7 @@ Product.init(
       autoIncrement: true
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1500),
       allowNull: false,
     },
     product_img: {
