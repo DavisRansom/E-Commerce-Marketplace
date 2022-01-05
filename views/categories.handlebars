@@ -1,12 +1,18 @@
+<div class="cat-container">
 <h1>Browse by...</h1>
-<div class = "card-container">
-{{#each serializedData}}
-<div class="card w-75 bg-dark text-white">
-  <img src="{{category_img}}" class="card-img cat-img" alt="">
-  <div class="card-img-overlay">
-    <h5 class="card-title"><a id='cat-link' href="/api/categories/{{id}}">{{category_name}}</a></h5>
+<div class = "cat-parent">
+  <div class="cat-card">
+  {{#each serializedData}}
+    <div class="cat-imgholder">
+      <a href="/api/categories/{{id}}">
+      <img src="{{category_img}}" class="card-img cat-img" alt="">
+      <div class="card-body">
+          <h5 class="card-title"><a id='cat-link' href="/api/categories/{{id}}">{{category_name}}</a></h5>
+      </div>
+      </a>
+    </div>
+  {{/each}}
   </div>
 </div>
-{{/each}}
-</div>
 <script src="../js/addToCart.js"></script>
+</div>
