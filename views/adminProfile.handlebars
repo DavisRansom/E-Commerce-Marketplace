@@ -70,7 +70,7 @@
 </div>
 
 <!--Add Category Section-->
-<h2> Add A Category</h2>
+<h2> Add a Category</h2>
 <form class="form new-category-form">
   <div class="form-group">
     <label for="product-img">Category Name (Singular):</label>
@@ -84,12 +84,21 @@
     <button type='submit' class="btn btn-success">Add</button>
   </div>
 </form>
+<h3>Delete a Category</h3>
+<div class="form-group">
+  <select class="form-select" id="category-delete">
+    <option selected>Delete a Category...</option>
+    {{#each serializedCategoryData}}
+    <option value="{{id}}">{{category_name}}</option>
+    {{/each}}
+  </select>
+  <button class="btn btn-sm btn-danger" id='delete-category'>DELETE</button>
+</div>
+
 
 <script src="/js/adminProfile.js"></script>
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="../../js/addToCart.js"></script>
 {{!-- Closing statement for the loggedIn condition, if the admin is not logged in they are redirected to the login
 page--}}

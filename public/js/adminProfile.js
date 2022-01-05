@@ -52,7 +52,7 @@ const addProductHandler = async (event) => {
   }
 };
 
-const delButtonHandler = async (event) => {
+const delProductHandler = async (event) => {
 
   console.log(event.target.getAttribute('data-id'));
 
@@ -65,12 +65,33 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
+      alert('Product has been deleted');
       document.location.replace('/api/users/profile')
     } else {
       alert('Failed to delete product');
     }
   }
 };
+
+const delCategoryHandler = async (event) =>{
+  console.log('HELLO FROM CAT DELETE');
+
+  const categoryDeleteId = document.querySelector('#category-delete').value
+
+  console.log(categoryDeleteId)
+
+  const response = await fetch(`/api/categories/${categoryDeleteId}`, {
+    method: 'DELETE',
+  });
+
+  if (response.ok){
+    alert('Category has been deleted');
+    document.location.replace('/api/users/profile')
+  }else{
+    alert('Failed to delete category');
+  }
+
+}
 
 const addCategoryHandler = async (event) => {
   event.preventDefault();
@@ -99,6 +120,10 @@ const addCategoryHandler = async (event) => {
 }
 
 document
+  .querySelector('#delete-category')
+  .addEventListener('click', delCategoryHandler)
+
+document
   .querySelector('.new-category-form')
   .addEventListener('submit', addCategoryHandler);
 
@@ -107,4 +132,4 @@ document
   .addEventListener('submit', addProductHandler);
 
 $(document)
-  .on('click', '.delete-btn', delButtonHandler);
+  .on('click', '.delete-btn', delProductHandler);

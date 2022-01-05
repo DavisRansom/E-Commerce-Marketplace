@@ -24,12 +24,14 @@
 </div>
 
 <!--THIS IS WHERE ORDER INFO WILL GO MUST FIX CART ISSUES FIRST -->
+<h2>Past Orders</h2>
 <div id="order-info">
-    {{#each serializedOrder}}
+    {{#each serializedOrderData}}
+    <h4>Order ID: {{serializedOrderData.id}}</h4>
     <!--LIST OF ALL PRODUCTS IN THIS ORDER-->
-    <ul>
+    <ul class="list-group">
         {{#each serializedOrderData.products}}
-
+            <li class="list-group-item disabled" aria-disabled="true"><a href="/api/products/{{id}}" target="_blank">{{product_name}}: </a><span class="dollar-amount">{{format_amount price}}</span></li>
         {{/each}}
     </ul>
 
