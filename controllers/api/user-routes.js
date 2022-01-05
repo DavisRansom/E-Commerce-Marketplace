@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { render } = require('express/lib/response');
-const { User, Category, Product, Order } = require('../../models');
+const { User, Category, Product, Order, OrderProduct } = require('../../models');
 const fetch = require('node-fetch');
 router.get('/', async (req, res) => {
 
@@ -36,7 +36,19 @@ router.get('/profile', async (req, res) => {
       let userData = await User.findByPk(req.session.user_id);
       let serializedUserData = userData.get({ plain: true });
 
-      res.render('userProfile', { serializedUserData, logged_in })
+      let orderData = await Order.findAll({
+        where: {
+          user_id: req.session.user_id,
+        },
+        include: [ User, { model: Product, through: OrderProduct}]});
+
+      let serializedOrderData = orderData.map(orders => orders.get({plain: true}));
+      
+      console.log(serializedOrderData)
+
+      // console.log(orderData);  
+
+      res.render('userProfile', { serializedUserData, serializedOrderData, logged_in })
      
     }
     

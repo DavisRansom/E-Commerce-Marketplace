@@ -29,6 +29,7 @@ header, .product:not(:last-child) {
   margin: auto;
 }
 
+
 .card{
   display: inline-block;
   
