@@ -94,7 +94,7 @@ header, .product:not(:last-child) {
 .cart-btn a{
   color:goldenrod
 }
-
+/* End category css */
 .footer-style{
   background-color:rgba(211, 210, 210, 0.5);
   width:100%;
@@ -106,7 +106,9 @@ footer p {
   white-space: wrap;
 }
 
-
 body{
-  background-image: linear-gradient(rgb(49, 49, 49),rgba(211, 210, 210, 0.4))
+  background-image: linear-gradient(rgba(255, 187, 39, 0.233),rgba(255, 230, 0, 0.178))
+}
+.iconimg{
+  z-index: 1;
 }
