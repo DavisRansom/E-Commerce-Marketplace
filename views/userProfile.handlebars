@@ -1,10 +1,13 @@
+<section class="row col-12 justify-content-center ">
+  <div class="col-12 col-md-10 col-lg-6 bg-dark text-light my-4 p-4 rounded">
+
 <h1>User Profile Page</h1>
 <div class="row">
     <div class="col-auto">
         <h2>Welcome, {{serializedUserData.name}}!</h2>
     </div>
 </div>
-<div id='user-info'>
+<div id='user-info '>
     <ul class="list-group">
         <label for="user-id" class="form-label">ID: <li class="list-group-item disabled" aria-disabled="true"
                 id="user-id">{{serializedUserData.id}}</li></label>
@@ -16,13 +19,14 @@
                 aria-disabled="true" id="user_name">{{serializedUserData.phone_number}}</li></label>
         <label for="user-email" class="form-label">Email: <li class="list-group-item disabled" aria-disabled="true"
                 id="user_name">{{serializedUserData.email}}</li></label>
-        <label for="user-password" class="form-label">Password (Encrypted): <li type="password"
-                class="list-group-item disabled" aria-disabled="true" id="user_name">{{serializedUserData.password}}
+        <label for="user-password" class="form-label">Password: <li type="password"
+                class="list-group-item disabled" aria-disabled="true" id="user_name">**********
             </li></label>
     </ul>
-    <button type="submit" class="btn btn-primary"><a href='/api/users/profile/edit'>Edit</a></button>
+    <a href='/api/users/profile/edit'><button type="submit" class="btn btn-block btn-warning">Edit</button></a>
 </div>
-
+</div>
+</section>
 <!--THIS IS WHERE ORDER INFO WILL GO MUST FIX CART ISSUES FIRST -->
 <h2>Past Orders</h2>
 <div class='card-group ' id="order-info">
@@ -58,4 +62,6 @@
     </div>
     {{/each}}
 </div>
+
+
 <script src="../../js/addToCart.js"></script>
