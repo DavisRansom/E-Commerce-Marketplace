@@ -51,6 +51,8 @@ $('.add-to-cart').on('click', addToCart);
 const products = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
 const tableBody = document.querySelector(".table-body");
 
+let total = 0;
+let i = 0
 products.forEach(product => {
     const tr = document.createElement("tr");
     tr.classList.add("cart-row")
@@ -61,7 +63,40 @@ products.forEach(product => {
     <td>
       <input class="form-input text-center" type="number" id="product-quantity" name="product-quantity"/>
     </td>
-    <td><i class="fas fa-trash-alt text-danger delete-cart-item"></i></td>
+    <td><i class="fas fa-trash-alt text-danger delete-cart-item" data-index="${i}"></i></td>
     `
     tableBody.appendChild(tr)
+    total += parseInt(product.price)
+    i++
+
+    console.log(total);
 })
+document.querySelector('#cart-total').textContent = total;
+
+const delCartItem = async (event) => {
+
+    console.log("HELLO FROM DELETE CART ITEM")
+
+
+    let indexToDelete = event.target.getAttribute('data-index');
+
+    console.log(indexToDelete)
+
+    let productsArray = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
+    
+    console.log(productsArray)
+
+    productsArray.splice(indexToDelete, 1);
+
+    console.log(productsArray)
+    
+    localStorage.setItem('products', JSON.stringify(productsArray));
+
+    // event.target.parentElement.parentElement.remove()
+
+    document.location.replace('/cartitems');
+}
+$(document)
+.on('click', '.delete-cart-item', delCartItem);
+
+
