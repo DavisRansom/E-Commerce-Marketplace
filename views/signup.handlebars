@@ -1,8 +1,8 @@
-<div class="middle">
-<div class="col-md-6">
+<section class="row col-12 justify-content-center">
+  <div class="col-12 col-md-10 col-lg-6">
     <h2>Signup</h2>
 
-    <form class="form signup-form">
+    <form class="form signup-form bg-dark text-light my-4 p-4 rounded">
       <div class="form-group">
         <label for="name-signup">Name:</label>
         <input class="form-input" type="text" id="name-signup" />
@@ -25,16 +25,18 @@
       </div>
 
       <div class="form-group">
-        <label for="isAdmin-signup">Are you a seller?
-        <input class="form-input larger" type="checkbox" id="isAdmin" />
+        <div class="form-check">
+        <label for="form-check-label isAdmin-signup">Are you a seller?
+        <input class="form-check-input" type="checkbox" id="isAdmin" />
         </label>
+        </div>
       </div>
       
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">Sign-up</button>
+        <button class="btn btn-block btn-success" type="submit">Sign-up</button>
       </div>
       
     </form>
   </div>
-</div>
+</section>
 <script src="/js/signup.js"></script>
