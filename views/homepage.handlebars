@@ -1,6 +1,6 @@
-<div class="container-fluid" id="card-container">
+<div class="container-fluid d-flex flex-row flex-wrap justify-content-around" id="card-container">
 {{#each serializedData}}
-<div class="card border-info mb-3" style="width: 18rem;">
+<div class="card mb-3" style="width: 18rem;">
   <a href="/api/products/{{id}}"><img src="{{product_img}}" class="card-img-top" alt="{{alt}}" id="small-product">
   <div class="card-body">
     <h5 class="card-title"><a href="/api/products/{{id}}">{{product_name}}</a></h5>
@@ -11,7 +11,7 @@
     </p>
     </a>
     <p class="card-text">Stock: {{stock}}</p>
-    <a class="btn btn-primary add-to-cart" data-id="{{id}}">Add To Cart</a>
+    <a class="btn btn-block btn-primary add-to-cart" data-id="{{id}}">Add To Cart</a>
   </div>
 </div>
 {{/each}}
