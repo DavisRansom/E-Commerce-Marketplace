@@ -21,7 +21,7 @@ This application is optimized for GoogleChrome but can run on any modern browser
 ### Installing
 
 The files for this application can be found here:
-* https://github.com/DavisRansom/Team6
+* https://github.com/DavisRansom/E-Commerce-Marketplace
 
 ### How To Execute the Program
 
